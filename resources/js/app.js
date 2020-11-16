@@ -5,7 +5,11 @@
  */
 
 require('./bootstrap');
-
+require('admin-lte/plugins/iCheck/icheck.min.js');
+require('admin-lte/bower_components/jquery/dist/jquery.min.js');
+require('admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js');
+require('admin-lte/dist/js/adminlte.min.js');
+require('admin-lte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');
 window.Vue = require('vue');
 
 /**

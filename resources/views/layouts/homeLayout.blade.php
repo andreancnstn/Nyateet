@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   {{-- <link rel="icon" href="php " type="image/icon type"> --}}
-  <title>Bank Indonesia | @yield('title')</title>
+  <title>Nyateet | @yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
    <!-- CSRF Token -->
@@ -12,16 +12,19 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{asset('/css/skin-blue-light.css')}}"> 
   <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-  <link rel="stylesheet" href="{{asset('/css/AdminLTE.css')}}">
-  <link rel="stylesheet" href="{{asset('/css/font-awesome.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('/css/custom.css')}}"> --}}
 
 </head>
 <body class="skin-blue-light fixed sidebar-mini">
+  <div class="loader"></div>
+  <div id="cover"></div>
+  <div id="blur"></div>
   <div class="wrapper">
     <header class="main-header">
       <!-- Logo -->
       <a href="#" class="logo">
-        <span class="logo-lg"><img src="#" class="logo"> </span>
+        <span class="logo-mini"><img src="#" class="logo" alt="LOGO NYATEET 1 huruf aja"></span>
+        <span class="logo-lg"><img src="#" class="logo" alt="LOGO NYATEET FULL"> </span>
       </a>
       <!-- Header Navbar -->
       <nav class="navbar navbar-static-top">
@@ -30,32 +33,19 @@
           <span class="sr-only">Toggle navigation</span>
         </a>
 
+        <form action="#" method="get" class="sidebar-form">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+          </div>
+        </form>
+
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <!-- User Account -->
-            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs">{{ Auth::user()->name }}</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="user-header">
-                  <p>
-                  {{ Auth::user()->name }}
-                  </p>
-                <!--User Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                  <button>  <a href="#" class="btn-default">Profil</a> </button>
-                  
-                  </div>
-                  <div class="pull-right">
-                  <button>
-                  <a href="{{ route('logout') }}" class="btn-default">Keluar</a>
-                  </button> 
-                  </div>
-                </li>
-              </ul>
-            </li>
           </ul>
         </div>
       </nav>
@@ -65,41 +55,60 @@
     <aside class="main-sidebar">
       <section class="sidebar">
           <hr>
-            <div class="user-panel">
+            {{-- <div class="user-panel">
               <div class="pull-left info">
                 <p>{{ Auth::user()->name }}</p>
                 <a>{{ Auth::user()->role }}</a>
+              </div>
+            </div> --}}
+
+            <div class="user-panel" style="height: 60px">
+              <div class="pull-left image">
+              <img src="#" class="img-circle" alt="User Image">
+              </div>
+              <div class="pull-left info">
+                <li class="dropdown user user-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <!--User Menu Footer-->
+                    <li class="user-footer">
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                        @csrf
+                        <button>
+                          Keluar
+                          </button> 
+                      </form>
+                      {{-- <div class="pull-right">
+                      
+                      </div> --}}
+                    </li>
+                  </ul>
+                </li>
+                <p>{{ Auth::user()->name }}</p>
+                <!-- Status -->
+                {{-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> --}}
               </div>
             </div>
           <hr>
         <!-- Menu -->
         <ul class="sidebar-menu">
-          {{-- @if (Auth::user()->role == 'Administrator')
-            <li class="{{ request()->is('manajemen*') ? 'active' : '' }}">
-              <a href="{{ route('users.index') }}"> --}}
-                  <li>
-                <i class="fa fa-user"></i> <span class="menu">Manajemen Pengguna</span>
-                  </li>
-              {{-- </a>
-            </li>
-          @endif --}}
-
-          
-          {{-- <li class="{{ (request()->is('sanksi-pelaporan*')) ? 'active' : '' }}">
-            <a href="{{ route('forms.indexSP') }}"> --}}
-                <li>
-              <i class="fa fa-exclamation-circle"></i>
-              <span class="menu">Sanksi Pelaporan</span>
-            {{-- </a> --}}
+          <li>
+            <i class="fa fa-calendar-o" aria-hidden="true"></i>
+            <span class="menu">Today</span>
+          </li>
+          <li>
+            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+              <span class="menu">Active Task</span>
           </li>
 
-          {{-- <li class="{{ (request()->is('dokumen-sanksi*')) ? 'active' : '' }}"> 
+          {{-- <li class="{{ (request()->is('dokumen-sanksi*')) ? 'active' : '' }}">
             <a href="{{ route('forms.indexDS') }}"> --}}
-            <li>
-                <i class="fa fa-file"></i>
-                <span class="menu">Dokumen Sanksi</span>
-            {{-- </a> --}}
-            </li>
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <span class="menu">History</span>
+            {{-- </a>
+          </li> --}}
 
       </section> 
     </aside>
@@ -114,7 +123,9 @@
 
   </div>
 
-   <!-- mix JS -->
+  <!-- mix JS -->
   <script src="{{asset('/js/app.js')}}"></script>
+
+  @yield('script')
 </body>
 </html>
