@@ -16,10 +16,14 @@ class CreateTodosTable extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('user_id');
             $table->foreignId('category_id');
-            $table->foreignId('subCategory_id')->nullable();
-            $table->timestamp('deadline')->nullable();
-            $table->boolean('isImportant')->nullable();
+            $table->foreignId('status_id')->default(1);
+            $table->date('deadline')->nullable();
+            $table->boolean('isImportant')->default(0);
+            $table->boolean('isStart')->default(0);
+            $table->boolean('isFinished')->default(0);
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }
