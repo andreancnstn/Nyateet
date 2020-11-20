@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::resource('todos', TodoController::class);
+
+Route::prefix('todos')->group(function() {
+    Route::get('/', 'TodoController@index')->name('todo.index');
+    Route::get('/create', 'TodoController@create')->name('todo.create');
+    Route::post('/', 'TodoController@store')->name('todo.store');
+});
