@@ -8,7 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+         <!-- buat button test truh sini dlu -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('/css/custom.css')}}">
         <!-- Styles -->
         <style>
             html, body {
@@ -93,7 +95,27 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+               
+
+                
+<h2>Taruh sini cuma mau buat liat buttons aja. Buttonsnya depend ke custom.css dan font-awesome/4.7.0/css</h2>
+
+<button id="savebtn" class="btn"><i class="fa fa-save"></i> Save</button>
+<button id="cancelbtn" class="btn"><i class="fa fa-times"></i> Cancel</button>
+<p></p>
+<button id="yesbtn" class="btn"><i class="fa"></i>Yes</button>
+<button id="nobtn" class="btn"><i class="fa"></i>No</button>
+<p></p>
+<button id="editbtn"class="btn"><i class="fa fa-pencil"></i> Edit</button>
+<button id="deletebtn"class="btn"><i class="fa fa-trash"></i> Delete</button>
+<button id="startbtn"class="btn"><i class="fa fa-check"></i> Start</button>
+<button id="archivebtn" class="btn"><i class="fa fa-archive"></i> Archive</button>
+<p></p>
+<button id="finishbtn" class="btn"><i class="fa fa-check"></i>Finish</button>
+<p></p>
+<button class="iconbtn"><i class="fa fa-long-arrow-right"></i></button>
+
+</div>
             </div>
         </div>
     </body>

@@ -1,0 +1,108 @@
+/*baru isi style button*/
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 grey,
+                   1px -1px 0 grey;-1px -1px 0 grey;
+  }
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+  
+  #savebtn{
+  background-color: #fff173;
+  text-shadow: -1px 1px 0 red, 1px 1px 0 orange,
+                   1px -1px 0 orange;-1px -1px 0 orange;
+  }
+  #savebtn:hover{
+  background-color: #ffe500;
+  text-shadow: 0px 0px #000;
+  }
+  #cancelbtn{
+  background-color: rgb(220,53,69);
+  }
+  #cancelbtn:hover{
+  background-color: rgb(210,20,50);
+  }
+  #yesbtn{
+      background-color: rgb(0,123,255);
+    padding: 12px 30px;
+  }
+  #yesbtn:hover{
+  background-color: RoyalBlue;
+  }
+  #nobtn{
+  background-color: rgb(220,53,69);
+    padding: 12px 30px;
+  }
+  #nobtn:hover{
+  background-color: rgb(210,20,50);
+  }
+  
+  #editbtn{
+  color:#e3feff;
+  text-shadow: 0px 0px #000;
+  }
+  #editbtn:hover{
+  color:white;
+  }
+  #deletebtn{
+  background-color: #faaabf;
+   padding: 12px 30px;
+   color:red;
+  text-shadow: 0px 0px #000;
+  }
+  #deletebtn:hover{
+  background-color: #ff759a;
+  color:white;
+  }
+  #startbtn{
+  background-color: #91ff9a;
+   padding: 12px 30px;
+   color:green;
+  text-shadow: 0px 0px #000;
+  }
+  #startbtn:hover{
+  background-color:#49eb56;
+  color:white;
+  }
+  
+  #archivebtn{
+  background-color: #fff173;
+   padding: 12px 30px;
+   color:orange;
+  text-shadow: 0px 0px #000;
+  }
+  #archivebtn:hover{
+  background-color:#ffe500;
+  color:white;
+  }
+  
+  #finishbtn{
+  background-color: #fff173;
+   padding: 12px 30px;
+   color:black;
+  text-shadow: 0px 0px #000;
+  }
+  #finishbtn:hover{
+  background-color:#ffe500;
+  color:grey;
+  }
+  
+  .iconbtn{
+    border: none;
+    background-color: inherit;
+    font-size: 50px;
+    cursor: pointer;
+    display: inline-block;
+    color: #ffd712;
+  }
+  .iconbtn:hover{
+      color: #ffefa1;
+  }
+  
