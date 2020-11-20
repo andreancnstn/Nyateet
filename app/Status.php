@@ -10,7 +10,7 @@ class Status extends Model
         'name',
     ];
 
-    public function todos()
+    public function stattodos()
     {
         return $this->hasMany('App\Todo');
     }

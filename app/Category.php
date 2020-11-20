@@ -10,7 +10,7 @@ class Category extends Model
         'name'
     ];
 
-    public function todos()
+    public function cattodos()
     {
         return $this->hasMany('App\Todo');
     }
