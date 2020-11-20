@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Status;
 use App\Todo;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,13 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $active = 1;
-        $data = Todo::where('status_id', '=', $active);
+        // $todo = $data->where('isStart', '=', false);
+        // $inprog = $data->where('isStart', '=', true);       // tiga ini adalah logic buat page today
+        // $finish = $data->where('isFinished', '=', true);
 
-        return view('todo.today', compact('data'));
+        $stats = Status::where('name', '=', 'Active')->first();
+
+        return view('todo.today', compact('stats'));
     }
 
     /**
@@ -28,7 +32,8 @@ class TodoController extends Controller
      */
     public function create()
     {
-        return view('todo.create');
+        $cats = Category::all();
+        return view('todo.create', compact('cats'));
     }
 
     /**
@@ -41,23 +46,15 @@ class TodoController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required',
-            'category' => 'required',
+            'category_id' => 'nullable',
             'deadline' => 'nullable|date',
             'isImportant' => 'required',
             'notes' => 'nullable'
         ]);
 
-        // tfor testing only
-        if ($request->category == 'Web Development') {
-            $category_id = 1;
-        }
-
-        // $category_id = Category::where('name', '=', $request->category);
-
         Todo::create(array_merge(
             $data,
             ['user_id' => auth()->user()->id],
-            ['category_id' => $category_id]
         ));
 
         return redirect()->route('todo.index');
