@@ -28,4 +28,6 @@ Route::prefix('todos')->group(function() {
     Route::get('/', 'TodoController@index')->name('todo.index');
     Route::get('/create', 'TodoController@create')->name('todo.create');
     Route::post('/', 'TodoController@store')->name('todo.store');
+    Route::get('/{id}', 'TodoController@show')->name('todo.show');
+    Route::get('/edit/{id}', 'TodoControllers@edit')->name('todo.edit');
 });
