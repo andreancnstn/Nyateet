@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - nyateet</title>
+    <meta name="description" content="your personal online to-do list">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/typicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+</head>
+
+<body id="page-top">
+    <div class="modal fade" role="dialog" tabindex="-1" id="moveToArchiveModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Move To Archive</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Are you sure to move task to archive?<br><small style="font-size: 15px;">Your task / activity will be moved to history</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="saveModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Save Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Are you sure to save the changes?<br><small style="font-size: 15px;">Your changes will be saved</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="startModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Start Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Ready to start your task?<br><small style="font-size: 15px;">Your task will start now</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Are you sure to delete task?<br><small style="font-size: 15px;">Your task will be deleted</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="taskDetailModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Task Detail</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body text-right">
+                            <h4 class="text-left card-title">Create Prototype blablablabla lalala</h4>
+                            <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
+                            <p class="text-left card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
+                            <button
+                                class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button><button class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button></div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="taskDetailArchiveModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Task Detail</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body text-right">
+                            <h4 class="text-left card-title">Create Prototype blablablabla lalala</h4>
+                            <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
+                            <p class="text-left card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                            <button
+                                class="btn btn-warning" type="button"><i class="fa fa-inbox" style="border-style: none;color: rgb(248,243,204);"></i>Archive</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="taskDetailHistoryModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Task Detail</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body text-right">
+                            <h4 class="text-left card-title">Create Prototype blablablabla lalala</h4>
+                            <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
+                            <p class="text-left card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button></div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"></div>
+                    <div class="sidebar-brand-text mx-3"><i class="fas fa-cat"></i><span>nyateet</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">
+                            <div></div>
+                            <div></div><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"><span>Tasya</span><span style="font-size: 10px;opacity: 0.55;padding: 5px;padding-left: 5px;"><em>Premium Member</em></span></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="material-icons">today</i><span>Today</span></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="active.html"><i class="fas fa-running"></i><span>Active Task</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html"><i class="fa fa-history"></i><span>History</span></a><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Register</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                <div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button></div>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Today Dashboard</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-xl-4">
+                            <div class="card shadow mb-4" style="background: rgb(248,249,252);">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">To Do</h6><span class="border rounded">&nbsp;3&nbsp;</span></div><button class="btn btn-primary" type="button" style="background: rgb(190,190,200);border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding: 6px 12px;padding-top: 6px;margin: 10px;border-width: 1px;border-color: #ffffff00;">+</button>
+                                <div
+                                    class="card-body" style="margin: 10px;background: #ffffff;">
+                                    <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>
+                                    <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                            </div>
+                            <div class="card-body" style="margin: 10px;background: #ffffff;">
+                                <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #c2c1be;"></i></div>
+                                <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                            </div>
+                            <div class="card-body" style="margin: 10px;background: #ffffff;">
+                                <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #c2c1be;"></i></div>
+                                <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xl-4">
+                        <div class="card shadow mb-4" style="background: rgb(248,249,252);">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="text-primary font-weight-bold m-0">In Progress</h6><span class="border rounded">&nbsp;3&nbsp;</span></div><button class="btn btn-primary" type="button" style="background: rgb(190,190,200);border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding: 6px 12px;padding-top: 6px;margin: 10px;border-width: 1px;border-color: #ffffff00;">+</button>
+                            <div
+                                class="card-body" style="margin: 10px;background: #ffffff;">
+                                <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>
+                                <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                        </div>
+                        <div class="card-body" style="margin: 10px;background: #ffffff;">
+                            <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>
+                            <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                        </div>
+                        <div class="card-body" style="margin: 10px;background: #ffffff;">
+                            <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #c2c1be;"></i></div>
+                            <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4">
+                    <div class="card shadow mb-4" style="background: rgb(248,249,252);">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h6 class="text-primary font-weight-bold m-0">Finished</h6><span class="border rounded">&nbsp;3&nbsp;</span></div><button class="btn btn-primary" type="button" style="background: rgb(190,190,200);border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding: 6px 12px;padding-top: 6px;margin: 10px;border-width: 1px;border-color: #ffffff00;">+</button>
+                        <div
+                            class="card-body" style="margin: 10px;background: #ffffff;">
+                            <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #c2c1be;"></i></div>
+                            <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                    </div>
+                    <div class="card-body" style="margin: 10px;background: #ffffff;">
+                        <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>
+                        <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                    </div>
+                    <div class="card-body" style="margin: 10px;background: #ffffff;">
+                        <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #c2c1be;"></i></div>
+                        <p class="m-0" style="color: rgb(21,21,24);">Create Prototype blablablabla lalalala</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white bg-primary shadow">
+                            <div class="card-body">
+                                <p class="m-0">Primary</p>
+                                <p class="text-white-50 small m-0">#4e73df</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white bg-success shadow">
+                            <div class="card-body">
+                                <p class="m-0">Success</p>
+                                <p class="text-white-50 small m-0">#1cc88a</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white bg-info shadow">
+                            <div class="card-body">
+                                <p class="m-0">Info</p>
+                                <p class="text-white-50 small m-0">#36b9cc</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white bg-warning shadow">
+                            <div class="card-body">
+                                <p class="m-0">Warning</p>
+                                <p class="text-white-50 small m-0">#f6c23e</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white bg-danger shadow">
+                            <div class="card-body">
+                                <p class="m-0">Danger</p>
+                                <p class="text-white-50 small m-0">#e74a3b</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card text-white bg-secondary shadow">
+                            <div class="card-body">
+                                <p class="m-0">Secondary</p>
+                                <p class="text-white-50 small m-0">#858796</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+            <div class="text-center my-auto copyright"><span>Copyright © nyateet 2020</span></div>
+        </div>
+    </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
