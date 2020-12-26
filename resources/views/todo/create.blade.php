@@ -8,7 +8,7 @@
 <form action="{{ route('todo.store')}}" method="POST">
     @csrf
     <div class="col=md-12">
-        <h1 class="pt-5 pb-3">Create Task / Activities</h1>
+        <h1 class="pt-2 pb-3">Create Task / Activities</h1>
         <hr>
         <div class="form-group d-flex">
             <label class="control-label col-2 pt-2">Task / Activity Name</label><span class="pt-2">&nbsp;&nbsp;&nbsp;:&nbsp;</span>
@@ -39,7 +39,7 @@
         <div class="form-group d-flex">
             <label class="control-label col-2 pt-2">Notes</label><span class="pt-2">&nbsp;&nbsp;&nbsp;:&nbsp;</span>
             <div class="col-10">
-                <input class="form-control" id="notes" name="notes" placeholder="notes">
+                <input class="form-control" id="notes" name="notes" placeholder="Notes">
             </div>
         </div>
 

@@ -1,15 +1,14 @@
 @extends('layouts.homeLayout')
 
 @section('title')
-    
+    Todo Active
 @endsection
 
 @section('content')
-    ini page today
+    TODAY <br>
 
-    @foreach ($stats->stattodos as $t)
-    {{-- BUAT LAYOUT NYA DULU TRUS MASUKIN KE DALEM IF BUAT PISAHIN TODO, INPROGRESS, SAMA FINISHED. 
-        LOGIC LIAT DI CONTROLLER  --}}
-        {{$t->name}}
+    @foreach ($todos as $t)
+        id = {{$t->id}} <br>
+        name = {{$t->name}} <br>
     @endforeach
 @endsection

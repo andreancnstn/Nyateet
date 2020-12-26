@@ -14,15 +14,31 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function todayIndex()
     {
         // $todo = $data->where('isStart', '=', false);
         // $inprog = $data->where('isStart', '=', true);       // tiga ini adalah logic buat page today
         // $finish = $data->where('isFinished', '=', true);
 
+        $todos = Todo::where('deadline', date("Y-m-d"))->get();
+
+        // dd($todos);
+
+        return view('todo.today', compact('todos'));
+    }
+
+    public function activeIndex()
+    {
         $stats = Status::where('name', '=', 'Active')->first();
 
-        return view('todo.today', compact('stats'));
+        return view('todo.active', compact('stats'));
+    }
+
+    public function historyIndex()
+    {
+        $stats = Status::where('name', '=', 'History')->first();
+
+        return view('todo.history', compact('stats'));
     }
 
     /**
@@ -57,7 +73,7 @@ class TodoController extends Controller
             ['user_id' => auth()->user()->id],
         ));
 
-        return redirect()->route('todo.index');
+        return redirect()->route('todo.todayIndex');
     }
 
     /**
@@ -66,9 +82,12 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function show(Todo $todo)
+    public function show($id)
     {
-        //
+        $todo = Todo::findOrFail($id);
+        $cats = Category::all();
+
+        return view('todo.detail', compact('todo', 'cats'));
     }
 
     /**
@@ -77,9 +96,11 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todo $todo)
+    public function edit($id)
     {
-        //
+        $todo = Todo::findOrFail($id);
+        $cats = Category::all();
+        return view('todo.edit', compact('todo','cats'));
     }
 
     /**
@@ -91,7 +112,21 @@ class TodoController extends Controller
      */
     public function update(Request $request, Todo $todo)
     {
-        //
+        $todo = Todo::findOrFail($request->id);
+
+        $data = $this->validate($request, [
+            'name' => 'required',
+            'category_id' => 'nullable',
+            'deadline' => 'nullable|date',
+            'isImportant' => 'required',
+            'notes' => 'nullable'
+        ]);
+
+        $todo->update(array_merge(
+            $data
+        ));
+
+        return redirect()->route('todo.todayIndex');
     }
 
     /**
@@ -100,8 +135,10 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todo $todo)
+    public function destroy($id)
     {
-        //
+        Todo::findorFail($id)->delete();
+
+        return redirect()->route('todo.todayIndex');
     }
 }

@@ -11,17 +11,17 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            'name' => 'Web Development',
-        ]);
+        // DB::table('categories')->insert([
+        //     'name' => 'Web Development',
+        // ]);
 
-        DB::table('categories')->insert([
-            'name' => 'UI / UX',
-        ]);
+        // DB::table('categories')->insert([
+        //     'name' => 'UI / UX',
+        // ]);
 
-        DB::table('categories')->insert([
-            'name' => 'Database',
-        ]);
+        // DB::table('categories')->insert([
+        //     'name' => 'Database',
+        // ]);
 
         DB::table('categories')->insert([
             'name' => 'School Work',
@@ -29,6 +29,10 @@ class CategorySeeder extends Seeder
 
         DB::table('categories')->insert([
             'name' => 'Jobs',
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Health',
         ]);
 
         DB::table('categories')->insert([

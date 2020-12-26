@@ -32,7 +32,7 @@
                         <a class="nav-link" href="{{route('home')}}">
                         <img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"><span>{{ Auth::user()->name }}</span><span style="font-size: 10px;opacity: 0.55;padding: 5px;padding-left: 5px;"><em>{{ Auth::user()->role }}</em></span></a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('todo.index')}}"><i class="material-icons">today</i><span>Today</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('todo.todayIndex')}}"><i class="material-icons">today</i><span>Today</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('home')}}"><i class="fas fa-running"></i><span>Active Task</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('home')}}"><i class="fa fa-history"></i><span>History</span></a>
