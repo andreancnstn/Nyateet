@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
             'name' => 'Andre',
             'email' => 'admin@dummy.com',
             'password' => Hash::make('password'),
+            'photo' => 'photo/test'
         ]);
     }
 }
