@@ -20,11 +20,16 @@ class TodoController extends Controller
         // $inprog = $data->where('isStart', '=', true);       // tiga ini adalah logic buat page today
         // $finish = $data->where('isFinished', '=', true);
 
-        $todos = Todo::where('deadline', date("Y-m-d"))->get();
+        $todos = Todo::all();
+        // $todos = Todo::where('deadline', date("Y-m-d"))->get();
+        $todo = $todos->where('isStart', '=', 0)->where('isFinished', '=', 0);
+        $inprog = $todos->where('isStart', '=', 1)->where('isStart', '=', 0);
+        $finish = $todos->where('isStart', '=', 0)->where('isFinished', '=', 1);
+        $cats = Category::all();
 
-        // dd($todos);
+        // dd($todos, $todo, $inprog, $finish);
 
-        return view('todo.today', compact('todos'));
+        return view('todo.today', compact('todos', 'todo', 'inprog', 'finish', 'cats'));
     }
 
     public function activeIndex()
