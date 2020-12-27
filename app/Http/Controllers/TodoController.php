@@ -30,15 +30,17 @@ class TodoController extends Controller
     public function activeIndex()
     {
         $stats = Status::where('name', '=', 'Active')->first();
+        $cats = Category::all();
 
-        return view('todo.active', compact('stats'));
+        return view('todo.active', compact('stats', 'cats'));
     }
 
     public function historyIndex()
     {
         $stats = Status::where('name', '=', 'History')->first();
+        $cats = Category::all();
 
-        return view('todo.history', compact('stats'));
+        return view('todo.history', compact('stats', 'cats'));
     }
 
     /**

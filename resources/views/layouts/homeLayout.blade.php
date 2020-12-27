@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('/assets/fonts/material-icons.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/fonts/typicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/fonts/fontawesome5-overrides.min.css')}}">
-
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body id="page-top">
