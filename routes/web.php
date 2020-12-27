@@ -31,3 +31,5 @@ Route::prefix('todos')->group(function() {
     Route::get('/{id}', 'TodoController@show')->name('todo.show');
     Route::get('/edit/{id}', 'TodoController@edit')->name('todo.edit');
 });
+
+Route::get('ajax', 'TodoController@ajaxReq');

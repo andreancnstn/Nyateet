@@ -148,4 +148,15 @@ class TodoController extends Controller
 
         return redirect()->route('todo.todayIndex');
     }
+
+    public function ajaxReq(Request $request) 
+    {
+        $id = $request->get('id');
+        $data = Todo::findOrFail($id);
+        // return response()->json(['data' => $data]);
+
+        // $id = $_GET['id'];
+        // $data = Todo::findOrFail($id);
+        return $data;
+    }
 }

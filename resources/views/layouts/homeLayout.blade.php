@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('/assets/fonts/material-icons.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/fonts/typicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/fonts/fontawesome5-overrides.min.css')}}">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
@@ -74,6 +75,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+    @yield('script')
 </body>
 
 </html>
