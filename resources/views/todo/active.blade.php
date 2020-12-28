@@ -60,10 +60,12 @@
                             <hr/>
                             <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
                             <p id="notes" class="text-left card-text">Notes placeholder text</p>
-                            <!-- BUTTONS -->
+                            <!-- BUTTONS --> 
+                                    <!-- TODO PASSING DATA NYA -->
                             <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
-                            <button id="deleteBtn" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
-                            <button id="startBtn" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button></div>
+                            <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                            <button id="startBtn" data-toggle="modal" data-target="#startModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
+                        </div>
                 
                 </div>
             </div>
@@ -76,6 +78,36 @@
         </div>
     </div>
 </div>
+
+<!-- START MODAL -->
+<div class="modal fade" role="dialog" tabindex="-1" id="startModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Start Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Ready to start your task?<br><small style="font-size: 15px;">Your task will start now</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
+
+<!-- DELETE MODAL -->
+<div class="modal fade" role="dialog" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Are you sure to delete task?<br><small style="font-size: 15px;">Your task will be deleted</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('script')
