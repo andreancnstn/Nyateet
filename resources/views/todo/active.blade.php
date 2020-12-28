@@ -44,29 +44,35 @@
 {{-- MODAL EXAMPLE --}}
 <div class="modal" id="modalDetail">
     <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <p id="category"></p>
+                <h6 class="font-weight-bold ml-5" id="deadline"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body TODO FIX MODAL BODY--> 
+            <div class="modal-body">
+                <div class="card-body rounded mb-4" style="background-color : gray; color: white">
+                    <h3 id="name"></h3>
+                </div>
+
+                <div class="card-body rounded" style="background-color : gray; color: white">
+                    <p><strong>Notes</strong></p>
+                    <hr style="background-color: white">
+                    <p id="notes"></p>
+                </div>
+            </div>
+            
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            
         </div>
-        
-        <!-- Modal body TODO FIX MODAL BODY--> 
-        <div class="modal-body">
-          <p id="name"></p>
-          <p id="notes"></p>
-          <p id="category"></p>
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
     </div>
-  </div>
+</div>
 @endsection
 
 @section('script')
@@ -100,8 +106,17 @@
                 // console.log(data);
                 document.getElementById('name').innerHTML = data.name;
                 document.getElementById('notes').innerHTML = data.notes;
-                document.getElementById('category').innerHTML = data.category_id;
-
+                document.getElementById('deadline').innerHTML = data.deadline;
+                $.ajax({
+                    url: "{{ url('getCatName')}}",
+                    method: 'GET',
+                    data: {
+                        cat_id: data.category_id
+                    },
+                    success: function(data) {
+                        document.getElementById('category').innerHTML = data.name;
+                    }
+                });
             }
         });
     });

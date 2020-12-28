@@ -153,10 +153,13 @@ class TodoController extends Controller
     {
         $id = $request->get('id');
         $data = Todo::findOrFail($id);
-        // return response()->json(['data' => $data]);
+        return $data;
+    }
 
-        // $id = $_GET['id'];
-        // $data = Todo::findOrFail($id);
+    public function getCatName(Request $request)
+    {
+        $cat_id = $request->get('cat_id');
+        $data = Category::findOrFail($cat_id);
         return $data;
     }
 }
