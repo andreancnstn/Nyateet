@@ -149,17 +149,23 @@ class TodoController extends Controller
         return redirect()->route('todo.todayIndex');
     }
 
-    public function ajaxReq(Request $request) 
+    public function start(Request $request, $id)
     {
-        $id = $request->get('id');
-        $data = Todo::findOrFail($id);
-        return $data;
+        # code...
     }
 
-    public function getCatName(Request $request)
-    {
-        $cat_id = $request->get('cat_id');
-        $data = Category::findOrFail($cat_id);
-        return $data;
-    }
+    // PART OF AJAX DOCUM DO NOT DELETE
+    // public function ajaxReq(Request $request) 
+    // {
+    //     $id = $request->get('id');
+    //     $data = Todo::findOrFail($id);
+    //     return $data;
+    // }
+
+    // public function getCatName(Request $request)
+    // {
+    //     $cat_id = $request->get('cat_id');
+    //     $data = Category::findOrFail($cat_id);
+    //     return $data;
+    // }
 }

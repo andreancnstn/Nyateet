@@ -35,13 +35,18 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/', 'TodoController@store')->name('todo.store');
         Route::get('/{id}', 'TodoController@show')->name('todo.show');
         Route::get('/edit/{id}', 'TodoController@edit')->name('todo.edit');
+        Route::post('/update/{id}', 'TodoController@update')->name('todo.update');
+        Route::post('/start/{id}', 'TodoController@start')->name('todo.start');
+        Route::post('/delete/{id}', 'TodoController@destroy')->name('todo.delete');
     });
     Route::get('/logout', 'Auth\LoginController@logout');
-    Route::get('ajax', 'TodoController@ajaxReq');
-    Route::get('getCatName', 'TodoController@getCatName');
     Route::get('/profile', function() {
         return view('profile');
     })->name('profile');
     Route::post('/profile/{id}', 'UserController@update')->name('user.update');
+
+    // PART OF AJAX DOCUM DO NOT DELETE
+    // Route::get('ajax', 'TodoController@ajaxReq');
+    // Route::get('getCatName', 'TodoController@getCatName');
 });
 

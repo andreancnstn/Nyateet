@@ -36,76 +36,91 @@
                 </a>
             </div>
         </div>
-        <input id="hehe" type="hidden" data-id="{{$t->id}}" onclick="getID(this)">
+
+        {{-- <input id="hehe" type="hidden" data-id="{{$t->id}}" onclick="getID(this)"> FOR AJAX DOCUM --}}
+
+        {{-- MODAL --}}
+        <div class="modal" id="modalDetail">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <p id="category">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        <h6 class="font-weight-bold ml-5" id="deadline"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
+                    <div class="modal-body">
+                        <div class="card">
+                                <div class="card-body text-right">
+                                    <h4 id="name"class="text-left card-title">{{$t->name}}</h4>
+                                    <hr/>
+                                    <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
+                                    <p id="notes" class="text-left card-text">{{$t->notes}}</p>
+                                </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <!-- BUTTONS --> 
+                        <a href="{{ route('todo.edit', $t->id) }}">
+                            <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
+                        </a>
+                        
+                            <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                        
+                        
+                            <button id="startBtn" data-toggle="modal" data-target="#startModal" data-dismiss="modal" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- START MODAL -->
+        <div class="modal fade" role="dialog" tabindex="-1" id="startModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Start Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <h4 class="text-center"><br>Ready to start your task?<br><small style="font-size: 15px;">Your task will start now</small><br></h4>
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('todo.start', $t->id) }}">
+                            <button class="btn btn-primary" type="button">Yes</button>
+                        </a>
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DELETE MODAL -->
+        <div class="modal fade" role="dialog" tabindex="-1" id="deleteModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <h4 class="text-center"><br>Are you sure to delete task?<br><small style="font-size: 15px;">Your task will be deleted</small><br></h4>
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('todo.delete', $t->id) }}">
+                            <button class="btn btn-primary" type="button">Yes</button>
+                        </a>
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         @endforeach
     </div>
 </div>
-
-{{-- MODAL EXAMPLE --}}
-<div class="modal" id="modalDetail">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <p id="category"></p>
-                <h6 class="font-weight-bold ml-5" id="deadline"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;</h6>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            
-            <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
-            <div class="modal-body">
-                <div class="card">
-                        <div class="card-body text-right">
-                            <h4 id="name"class="text-left card-title">Task Name placeholder text</h4>
-                            <hr/>
-                            <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
-                            <p id="notes" class="text-left card-text">Notes placeholder text</p>
-                        </div>
-                </div>
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <!-- BUTTONS --> 
-                        <!-- TODO PASSING DATA NYA -->
-                <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
-                <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
-                <button id="startBtn" data-toggle="modal" data-target="#startModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-<!-- START MODAL -->
-<div class="modal fade" role="dialog" tabindex="-1" id="startModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Start Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                <div class="modal-body">
-                    <h4 class="text-center"><br>Ready to start your task?<br><small style="font-size: 15px;">Your task will start now</small><br></h4>
-                    <p></p>
-                </div>
-                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
-            </div>
-        </div>
-    </div>
-
-<!-- DELETE MODAL -->
-<div class="modal fade" role="dialog" tabindex="-1" id="deleteModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
-                <div class="modal-body">
-                    <h4 class="text-center"><br>Are you sure to delete task?<br><small style="font-size: 15px;">Your task will be deleted</small><br></h4>
-                    <p></p>
-                </div>
-                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('script')
@@ -114,51 +129,52 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-    var id;
-    $(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    });
-
     $('#modalDetail').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     });
 
-    $('a.detail').on('click', function() {
-        var x = window.id;
-        $.ajax({
-            url: "{{ url('ajax') }}",
-            method: 'GET',
-            data: {
-                id: x
-            },
-            success: function(data) {
-                // console.log(data);
-                document.getElementById('name').innerHTML = data.name;
-                document.getElementById('notes').innerHTML = data.notes;
-                document.getElementById('deadline').innerHTML = data.deadline;
-                if (data.isStart == 0 && data.isFinished == 1) {
-                    document.getElementById('startBtn').classList.add('d-none');
-                }
-                $.ajax({
-                    url: "{{ url('getCatName')}}",
-                    method: 'GET',
-                    data: {
-                        cat_id: data.category_id
-                    },
-                    success: function(data) {
-                        document.getElementById('category').innerHTML = data.name;
-                    }
-                });
-            }
-        });
-    });
+    // var id;
+    // $(function () {
+    //     $.ajaxSetup({
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         }
+    //     });
+    // });
 
-    function getID(i) {
-        window.id = $(i).attr('data-id');
-    }
+    // for AJAX DOCUM (DO NOT DELETE)
+    // $('a.detail').on('click', function() {
+    //     var x = window.id;
+    //     $.ajax({
+    //         url: "{{ url('ajax') }}",
+    //         method: 'GET',
+    //         data: {
+    //             id: x
+    //         },
+    //         success: function(data) {
+    //             // console.log(data);
+    //             document.getElementById('name').innerHTML = data.name;
+    //             document.getElementById('notes').innerHTML = data.notes;
+    //             document.getElementById('deadline').innerHTML = data.deadline;
+    //             if ((data.isStart == 0 && data.isFinished == 1) && (data.isStart == 1)) {
+    //                 document.getElementById('startBtn').classList.add('d-none');
+    //             }
+    //             $.ajax({
+    //                 url: "{{ url('getCatName')}}",
+    //                 method: 'GET',
+    //                 data: {
+    //                     cat_id: data.category_id
+    //                 },
+    //                 success: function(data) {
+    //                     document.getElementById('category').innerHTML = data.name;
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+
+    // function getID(i) {
+    //     window.id = $(i).attr('data-id');
+    // }
 </script>
 @endsection

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('todo.store')}}" method="POST">
+<form action="{{ route('todo.update', $todo->id)}}" method="POST">
     @csrf
     <div class="col=md-12">
         <h1 class="pt-2 pb-3">Edit Task / Activities</h1>
