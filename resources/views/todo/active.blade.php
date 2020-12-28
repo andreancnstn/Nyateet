@@ -67,7 +67,15 @@
             
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <a href="{{ route('todo.edit', 1) }}"> 
+                    <button type="button" class="btn btn-warning btn-sm">Edit</button>
+                </a>
+                <a href="">
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                </a>
+                <a href="">
+                    <button type="button" class="btn btn-success btn-sm" id="startBtn">Start</button>
+                </a>
             </div>
             
         </div>
@@ -107,6 +115,9 @@
                 document.getElementById('name').innerHTML = data.name;
                 document.getElementById('notes').innerHTML = data.notes;
                 document.getElementById('deadline').innerHTML = data.deadline;
+                if (data.isStart == 0 && data.isFinished == 1) {
+                    document.getElementById('startBtn').classList.add('d-none');
+                }
                 $.ajax({
                     url: "{{ url('getCatName')}}",
                     method: 'GET',
