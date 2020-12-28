@@ -52,16 +52,19 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             
-            <!-- Modal body TODO FIX MODAL BODY--> 
+            <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
             <div class="modal-body">
-                <div class="card-body rounded mb-4" style="background-color : gray; color: white">
-                    <h3 id="name"></h3>
-                </div>
-
-                <div class="card-body rounded" style="background-color : gray; color: white">
-                    <p><strong>Notes</strong></p>
-                    <hr style="background-color: white">
-                    <p id="notes"></p>
+                <div class="card">
+                        <div class="card-body text-right">
+                            <h4 id="name"class="text-left card-title">Task Name placeholder text</h4>
+                            <hr/>
+                            <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
+                            <p id="notes" class="text-left card-text">Notes placeholder text</p>
+                            <!-- BUTTONS -->
+                            <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
+                            <button id="deleteBtn" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                            <button id="startBtn" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button></div>
+                
                 </div>
             </div>
             
