@@ -60,19 +60,17 @@
                             <hr/>
                             <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
                             <p id="notes" class="text-left card-text">Notes placeholder text</p>
-                            <!-- BUTTONS --> 
-                                    <!-- TODO PASSING DATA NYA -->
-                            <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
-                            <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
-                            <button id="startBtn" data-toggle="modal" data-target="#startModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
                         </div>
-                
                 </div>
             </div>
             
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <!-- BUTTONS --> 
+                        <!-- TODO PASSING DATA NYA -->
+                <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
+                <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                <button id="startBtn" data-toggle="modal" data-target="#startModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
             </div>
             
         </div>
