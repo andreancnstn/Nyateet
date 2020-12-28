@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <h3 class="text-dark mb-1 pb-3">Active Task</h3>
     <div class="row">
-        @foreach ($stats->stattodos as $t)
+        @foreach ($todos as $t)
         <div class="col-lg-4 col-xl-4">
             <div class="card shadow mb-4" style="background: rgb(248,249,252);">
                 <div class="card-header d-flex justify-content-between align-items-center">
@@ -68,12 +68,10 @@
                         <a href="{{ route('todo.edit', $t->id) }}">
                             <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
                         </a>
-                        
-                            <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
-                        
-                        
+                        <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                        @if ($t->isStart != 1 && $t->isFinished == 1)
                             <button id="startBtn" data-toggle="modal" data-target="#startModal" data-dismiss="modal" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
-                        
+                        @endif
                     </div>
                 </div>
             </div>

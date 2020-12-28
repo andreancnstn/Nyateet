@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <h3 class="text-dark mb-1 pb-3">History</h3>
     <div class="row">
-        @foreach ($stats->stattodos as $t)
+        @foreach ($todos as $t)
         <div class="col-lg-4 col-xl-4">
             <div class="card shadow mb-4" style="background: rgb(248,249,252);">
                 <div class="card-header d-flex justify-content-between align-items-center">

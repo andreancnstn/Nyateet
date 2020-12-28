@@ -20,7 +20,7 @@ class TodoController extends Controller
         // $inprog = $data->where('isStart', '=', true);       // tiga ini adalah logic buat page today
         // $finish = $data->where('isFinished', '=', true);
 
-        $todos = Todo::all();
+        $todos = Todo::all()->where('user_id', auth()->user()->id);
         // $todos = Todo::where('deadline', date("Y-m-d"))->get();
         $todo = $todos->where('isStart', '=', 0)->where('isFinished', '=', 0);
         $inprog = $todos->where('isStart', '=', 1)->where('isStart', '=', 0);
@@ -34,18 +34,18 @@ class TodoController extends Controller
 
     public function activeIndex()
     {
-        $stats = Status::where('name', '=', 'Active')->first();
+        $todos = Status::where('name', '=', 'Active')->first()->stattodos->where('user_id', auth()->user()->id);
         $cats = Category::all();
 
-        return view('todo.active', compact('stats', 'cats'));
+        return view('todo.active', compact('todos', 'cats'));
     }
 
     public function historyIndex()
     {
-        $stats = Status::where('name', '=', 'History')->first();
+        $todos = Status::where('name', '=', 'History')->first()->stattodos->where('user_id', auth()->user()->id);
         $cats = Category::all();
 
-        return view('todo.history', compact('stats', 'cats'));
+        return view('todo.history', compact('todos', 'cats'));
     }
 
     /**
@@ -151,7 +151,13 @@ class TodoController extends Controller
 
     public function start(Request $request, $id)
     {
-        # code...
+        $todo = Todo::findOrFail($id);
+
+        $todo->update([
+            'isStart' => 1,
+        ]);
+
+        return redirect()->route('todo.activeIndex');
     }
 
     // PART OF AJAX DOCUM DO NOT DELETE
