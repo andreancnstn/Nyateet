@@ -20,20 +20,20 @@
                 {{-- <a href="{{ route('todo.show', $t->id) }}">  --}}
 
                     {{-- BELOW USING MODAL --}}
-                <a class="detail" type="button" data-toggle="modal" data-target="#modalDetail" data-id="{{$t->id}}" onclick="getID(this)"> 
-                    <div class="card-body" style="margin: 10px;background: #ffffff;">
+                    <div type="button" data-toggle="modal" data-target="#modalDetail" class="card-body" style="margin: 10px;background: #ffffff;">
                         <div>
                             <p class="m-0" style="color: rgb(21,21,24);">{{$t->name}}</p>
-
-                            {{-- BAGUSAN TARO FINISH BUTTON OR START DI DETAIL AJA BIAR SERAGAM --}}
-                            {{-- <div class="text-right"><button class="btn btn-warning" type="button"><i class="fa fa-check"></i>Finish</button></div> --}}
+                                <div class="text-right">
+                                    <a href="{{ route('todo.finish', $t->id) }}">
+                                        <button class="btn btn-warning" type="button"><i class="fa fa-check"></i>Finish</button>
+                                    </a>
+                                </div>
                         </div>
                         <div>
                             {{-- BUAT CATEGORYNYA , CTH LIAT FIGMA (KLO GK BISA UBAH UBAH WRNANYA, BUAT AJA CLASSNYA OR TEMPLATENYA) --}}
                             <p class="btn">{{$cats->where('id', $t->category_id)->first()->name}}</p>
                         </div>
                     </div>
-                </a>
             </div>
         </div>
 
@@ -69,7 +69,7 @@
                             <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
                         </a>
                         <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
-                        @if ($t->isStart != 1 && $t->isFinished == 1)
+                        @if ($t->isStart != 1)
                             <button id="startBtn" data-toggle="modal" data-target="#startModal" data-dismiss="modal" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
                         @endif
                     </div>

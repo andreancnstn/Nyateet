@@ -22,9 +22,9 @@ class TodoController extends Controller
 
         $todos = Todo::all()->where('user_id', auth()->user()->id);
         // $todos = Todo::where('deadline', date("Y-m-d"))->get();
-        $todo = $todos->where('isStart', '=', 0)->where('isFinished', '=', 0);
-        $inprog = $todos->where('isStart', '=', 1)->where('isStart', '=', 0);
-        $finish = $todos->where('isStart', '=', 0)->where('isFinished', '=', 1);
+        $todo = $todos->where('isStart', 0)->where('isFinished', 0);
+        $inprog = $todos->where('isStart', 1)->where('isFinished', 0);
+        $finish = $todos->where('isStart', 0)->where('isFinished', 1);
         $cats = Category::all();
 
         // dd($todos, $todo, $inprog, $finish);
@@ -155,6 +155,19 @@ class TodoController extends Controller
 
         $todo->update([
             'isStart' => 1,
+        ]);
+
+        return redirect()->route('todo.activeIndex');
+    }
+
+    public function finish($id)
+    {
+        $todo = Todo::findOrFail($id);
+
+        $todo->update([
+            'isStart' => 0,
+            'isFinished' => 1,
+            'status_id' => 2
         ]);
 
         return redirect()->route('todo.activeIndex');
