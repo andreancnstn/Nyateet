@@ -52,35 +52,60 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             
-            <!-- Modal body TODO FIX MODAL BODY--> 
+            <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
             <div class="modal-body">
-                <div class="card-body rounded mb-4" style="background-color : gray; color: white">
-                    <h3 id="name"></h3>
-                </div>
-
-                <div class="card-body rounded" style="background-color : gray; color: white">
-                    <p><strong>Notes</strong></p>
-                    <hr style="background-color: white">
-                    <p id="notes"></p>
+                <div class="card">
+                        <div class="card-body text-right">
+                            <h4 id="name"class="text-left card-title">Task Name placeholder text</h4>
+                            <hr/>
+                            <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
+                            <p id="notes" class="text-left card-text">Notes placeholder text</p>
+                        </div>
                 </div>
             </div>
             
             <!-- Modal footer -->
             <div class="modal-footer">
-                <a href="{{ route('todo.edit', 1) }}"> 
-                    <button type="button" class="btn btn-warning btn-sm">Edit</button>
-                </a>
-                <a href="">
-                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                </a>
-                <a href="">
-                    <button type="button" class="btn btn-success btn-sm" id="startBtn">Start</button>
-                </a>
+                <!-- BUTTONS --> 
+                        <!-- TODO PASSING DATA NYA -->
+                <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
+                <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                <button id="startBtn" data-toggle="modal" data-target="#startModal" data-id="{{$t->id}}" onclick="getID(this)" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
             </div>
             
         </div>
     </div>
 </div>
+
+<!-- START MODAL -->
+<div class="modal fade" role="dialog" tabindex="-1" id="startModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Start Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Ready to start your task?<br><small style="font-size: 15px;">Your task will start now</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
+
+<!-- DELETE MODAL -->
+<div class="modal fade" role="dialog" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <h4 class="text-center"><br>Are you sure to delete task?<br><small style="font-size: 15px;">Your task will be deleted</small><br></h4>
+                    <p></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button">Yes</button><button class="btn btn-danger" type="button" data-dismiss="modal">No</button></div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('script')
