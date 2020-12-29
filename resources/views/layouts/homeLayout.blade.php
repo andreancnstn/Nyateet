@@ -81,9 +81,9 @@
             </div>
 
             <!-- Footer -->
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © nyateet 2020</span></div>
+            <footer class="sticky-footer">
+                <div class="container my-auto fixed-bottom">
+                    <div class="text-center my-auto copyright" style="padding: 20px;padding-left: 30%"><span>Copyright © nyateet 2020</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
