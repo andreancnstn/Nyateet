@@ -15,10 +15,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary font-weight-bold m-0">To Do</h6><span class="border rounded">&nbsp;{{$todo->count()}}&nbsp;</span>
                 </div>
-                <a href="{{ route('todo.create') }}">
-                    {{-- TODO FIX ADD BUTTON, STOP WORKING AFTER ADDING <a> --}}
-                    <button class="btn btn-primary addBtnToday" type="button">+</button>
-                </a>
+                <a href="{{ route('todo.create') }}" class="btn btn-primary addBtnToday">+</a>
                 @foreach ($todo as $t)
                 <a data-toggle="modal" data-target="#modalDetailToDo-{{$t->id}}">
                     <div class="card-body" style="margin: 10px;background: #ffffff;">
@@ -132,7 +129,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary font-weight-bold m-0">In Progress</h6><span class="border rounded">&nbsp;{{$inprog->count()}}&nbsp;</span>
                 </div>
-                <button class="btn btn-primary addBtnToday" type="button">+</button>
+                <a href="{{ route('todo.create') }}" class="btn btn-primary addBtnToday">+</a>
                 @foreach ($inprog as $i)
                     <div type="button" data-toggle="modal" data-target="#modalDetailInProg-{{$i->id}}" class="card-body" style="margin: 10px;background: #ffffff;">
                         <div class="row ml-1 pb-4">
@@ -242,7 +239,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary font-weight-bold m-0">Finished</h6><span class="border rounded">&nbsp;{{$finish->count()}}&nbsp;</span>
                 </div>
-                <button class="btn btn-primary addBtnToday" type="button">+</button>
+                <a href="{{ route('todo.create') }}" class="btn btn-primary addBtnToday">+</a>
                 @foreach ($finish as $f)
                 <a data-toggle="modal" data-target="#modalDetailFinished-{{$f->id}}">
                     <div class="card-body" style="margin: 10px;background: #ffffff;">
