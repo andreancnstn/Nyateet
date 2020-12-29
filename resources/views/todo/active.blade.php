@@ -14,92 +14,78 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary font-weight-bold m-0"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                     {{-- MUSTINYA PAKE KEK RIBBON KUNING KLO IMPORTANT -> CONTOH LIAT GMAIL --}}
-                    @if ($t->isImportant == true)
-                    <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>  
-                    @endif
-                    @if ($t->isImportant == false)
-                    <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #d3d3d3;"></i></div>
-                    @endif
-                   </div>
+                    {{-- <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>  --}}
+                </div>
                 {{-- TODO MAKE DETAIL MODAL PAGE --}}
                 {{-- <a href="{{ route('todo.show', $t->id) }}">  --}}
 
                     {{-- BELOW USING MODAL --}}
-                <a class="detail" type="button" data-toggle="modal" data-target="#modalDetail" data-id="{{$t->id}}" onclick="getID(this)"> 
-                    <div class="card-body" style="margin: 10px;background: #ffffff;">
+                    <div type="button" data-toggle="modal" data-target="#modalDetail-{{$t->id}}" class="card-body" style="margin: 10px;background: #ffffff;">
                         <div>
                             <p class="m-0" style="color: rgb(21,21,24);">{{$t->name}}</p>
-
-                            {{-- BAGUSAN TARO FINISH BUTTON OR START DI DETAIL AJA BIAR SERAGAM --}}
-                            {{-- <div class="text-right"><button class="btn btn-warning" type="button"><i class="fa fa-check"></i>Finish</button></div> --}}
+                                {{-- <div class="text-right">
+                                    @if ($t->isStart == 0)
+                                    <a href="{{ route('todo.start', $t->id) }}">
+                                        <button class="btn btn-warning" type="button"><i class="fa fa-check" data-toggle="modal" data-target="#startModal-{{$t->id}}"></i>Start</button>
+                                    </a>
+                                    @else
+                                    <a href="{{ route('todo.finish', $t->id) }}">
+                                        <button class="btn btn-warning" type="button"><i class="fa fa-check"></i>Finish</button>
+                                    </a>
+                                    @endif
+                                </div> --}}
                         </div>
                         <div>
                             {{-- BUAT CATEGORYNYA , CTH LIAT FIGMA (KLO GK BISA UBAH UBAH WRNANYA, BUAT AJA CLASSNYA OR TEMPLATENYA) --}}
                             <p class="btn">{{$cats->where('id', $t->category_id)->first()->name}}</p>
                         </div>
                     </div>
-                </a>
             </div>
         </div>
 
         {{-- <input id="hehe" type="hidden" data-id="{{$t->id}}" onclick="getID(this)"> FOR AJAX DOCUM --}}
 
         {{-- MODAL --}}
-        <div class="modal" id="modalDetail">
-            <div class="modal-dialog">
+        <div class="modal fade " id="modalDetail-{{$t->id}}">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <div class="category" style="background-color: #cbcef5; border-radius: 20px; padding-right: 5%; padding-left: 5%">
-                            <h6 id="category" style="color: #4e73df; padding-top: 10%;">{{$cats->where('id', $t->category_id)->first()->name}}</h6>
-                        </div>
-                        <div class="d-flex" style="padding-left: 5%">
-                            @if ($t->isImportant == true)
-                                <h6 class="font-weight-bold ml-5" id="deadline"><i class="fa fa-calendar-check-o" style="text-align: center; color: #f9e814;"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>     
-                            @endif
-                            @if($t->isImportant == false)
-                                <h6 class="font-weight-bold ml-5" id="deadline"><i class="fa fa-calendar-check-o" style="text-align: center"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
-                            @endif
-                             </div>
-                        
+                        <p id="category-{{$t->id}}">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        
                     </div>
                     
                     <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
                     <div class="modal-body">
-                                    <div class="taskName rounded" style="background-color: #d3d3d3; padding: 3px;">
-                                        <h4 id="name"class="text-left text-dark card-title" style=" padding-top: 10px;">{{$t->name}}</h4>
-                                    </div>
-                                    <br>
-                                    <div class="taskDesc rounded" style="background-color: #d3d3d3; padding: 3px; padding-bottom: 30px">
-                                        <h6 class="text-left text-muted card-subtitle mb-2" style="padding-top: 5px">Notes</h6>
-                                        <hr class="divide" style="border: 2px solid text-muted;">
-                                        <p id="notes" class="text-left text-dark card-text" style="line-height: 80%">{{$t->notes}}</p>    
-                                    </div>
+                        <div class="card">
+                                <div class="card-body text-right">
+                                    <h4 id="name-{{$t->id}}"class="text-left card-title">{{$t->name}}</h4>
+                                    <hr/>
+                                    <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
+                                    <p id="notes-{{$t->id}}" class="text-left card-text">{{$t->notes}}</p>
+                                </div>
+                        </div>
                     </div>
                     
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <!-- BUTTONS --> 
-                            <a href="{{ route('todo.edit', $t->id) }}">
-                                <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);width: 30px"></i>Edit</button>
-                            </a>
-                            
-                                <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);width: 30px"></i>Delete</button>    
-                        
-
-                            {{-- pindah ke detail --}}
-                            {{-- <button id="startBtn" data-toggle="modal" data-target="#startModal" data-dismiss="modal" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button> --}}
-                        
+                        <a href="{{ route('todo.edit', $t->id) }}">
+                            <button id="editBtn-{{$t->id}}" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
+                        </a>
+                        <button id="deleteBtn-{{$t->id}}" data-toggle="modal" data-target="#deleteModal-{{$t->id}}" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                        @if ($t->isStart == 0)
+                            <button id="startBtn-{{$t->id}}" data-toggle="modal" data-target="#startModal-{{$t->id}}" data-dismiss="modal" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- START MODAL -->
-        <div class="modal fade" role="dialog" tabindex="-1" id="startModal">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade" role="dialog" tabindex="-1" id="startModal-{{$t->id}}">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Start Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
@@ -118,8 +104,8 @@
         </div>
 
         <!-- DELETE MODAL -->
-        <div class="modal fade" role="dialog" tabindex="-1" id="deleteModal">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade" role="dialog" tabindex="-1" id="deleteModal-{{$t->id}}">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
