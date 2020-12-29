@@ -56,8 +56,24 @@
                         <div class="modal-content">
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <p id="category-{{$t->id}}">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                                <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                @if ($t->category_id == 1)
+                                <p id="category-{{$t->id}}" class="custom-blue">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($t->category_id == 2)
+                                <p id="category-{{$t->id}}" class="custom-orange">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($t->category_id == 3)
+                                <p id="category-{{$t->id}}" class="custom-red">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($t->category_id == 4)
+                                <p id="category-{{$t->id}}" class="custom-green">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($t->category_id == 5)
+                                <p id="category-{{$t->id}}" class="custom-purple">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                                @endif
+                                <div class="d-inline-flex p-2" style="background-color: coral; padding-left: 8%">
+                                    <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o" style="text-align: center"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             
@@ -146,7 +162,15 @@
                                 {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
+<<<<<<< Updated upstream
                                     <i class="typcn typcn-chevron-right" style="color: #f9e814;"></i>
+=======
+                                    @if ($i->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @elseif ($i->isImportant == false)
+                                        <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
+                                    @endif
+>>>>>>> Stashed changes
                                 </div>
                         </div>
                         <div class="row ml-1">
@@ -163,12 +187,26 @@
                     </div>
 
                 {{-- MODAL --}}
-                <div class="modal" id="modalDetailInProg-{{$i->id}}">
+                <div class="modal fade" id="modalDetailInProg-{{$i->id}}">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <!-- Modal Header -->
-                            <div class="modal-header">
-                                <p id="category-{{$i->id}}">{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                            <div class="modal-header" style="justify-content: space-between">
+                                @if ($i->category_id == 1)
+                                <p id="category-{{$i->id}}" class="custom-blue">{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($i->category_id == 2)
+                                <p id="category-{{$i->id}}" class="custom-orange">{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($i->category_id == 3)
+                                <p id="category-{{$i->id}}" class="custom-red">{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($i->category_id == 4)
+                                <p id="category-{{$i->id}}" class="custom-green">{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($i->category_id == 5)
+                                <p id="category-{{$i->id}}" class="custom-purple">{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                                @endif
                                 <h6 class="font-weight-bold ml-5" id="deadline-{{$i->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$i->deadline}}</h6>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
@@ -257,7 +295,15 @@
                                 {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
+<<<<<<< Updated upstream
                                     <i class="typcn typcn-chevron-right" style="color: #f9e814;"></i>
+=======
+                                    @if ($f->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @elseif ($f->isImportant == false)
+                                        <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
+                                    @endif
+>>>>>>> Stashed changes
                                 </div>
                         </div>
                         <div class="row ml-1">
@@ -275,12 +321,26 @@
                 </a>
 
                 {{-- MODAL --}}
-                <div class="modal" id="modalDetailFinished-{{$f->id}}">
+                <div class="modal fade" id="modalDetailFinished-{{$f->id}}">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <p id="category-{{$f->id}}">{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                @if ($f->category_id == 1)
+                                <p id="category-{{$f->id}}" class="custom-blue">{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($f->category_id == 2)
+                                <p id="category-{{$f->id}}" class="custom-orange">{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($f->category_id == 3)
+                                <p id="category-{{$f->id}}" class="custom-red">{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($f->category_id == 4)
+                                <p id="category-{{$f->id}}" class="custom-green">{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                @endif
+                                @if ($f->category_id == 5)
+                                <p id="category-{{$f->id}}" class="custom-purple">{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                @endif
                                 <h6 class="font-weight-bold ml-5" id="deadline-{{$f->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$f->deadline}}</h6>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>

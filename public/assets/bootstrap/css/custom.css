@@ -1,0 +1,32 @@
+.custom-blue, .custom-green, .custom-orange, .custom-purple, .custom-red{
+    padding: 5px; 
+    border-radius: 20px; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+
+
+.custom-blue{
+    background-color: #e1e6f9;
+    color: #0275d8;
+}
+
+.custom-orange{
+    background-color: #fff1e1;
+    color: #f0ad4e;
+}
+
+.custom-green{
+    background-color: #e5f4e3;
+    color: #5cb85c;
+}
+
+.custom-purple{
+    background-color: #e8e1f8;
+    color: #6355d3;
+}
+
+.custom-red{
+    background-color: #fee3df; 
+    color: #d9534f;
+}

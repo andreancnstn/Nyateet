@@ -50,6 +50,7 @@
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
+<<<<<<< Updated upstream
                         <div class="category" style="background-color: #cbcef5; border-radius: 20px; padding-right: 5%; padding-left: 5%">
                             <h6 id="category" style="color: #4e73df; padding-top: 10%;">{{$cats->where('id', $t->category_id)->first()->name}}</h6>
                         </div>
@@ -62,6 +63,24 @@
                             @endif
                              </div>
                         
+=======
+                        @if ($t->category_id == 1)
+                        <p id="category-{{$t->id}}" class="custom-blue">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        @endif
+                        @if ($t->category_id == 2)
+                        <p id="category-{{$t->id}}" class="custom-orange">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        @endif
+                        @if ($t->category_id == 3)
+                        <p id="category-{{$t->id}}" class="custom-red">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        @endif
+                        @if ($t->category_id == 4)
+                        <p id="category-{{$t->id}}" class="custom-green">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        @endif
+                        @if ($t->category_id == 5)
+                        <p id="category-{{$t->id}}" class="custom-purple">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        @endif
+                        <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+>>>>>>> Stashed changes
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         
                     </div>

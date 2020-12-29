@@ -8,6 +8,7 @@
     <meta name="description" content="your personal online to-do list">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{asset('/assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/bootstrap/css/custom.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="{{asset('/assets/fonts/fontawesome-all.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/fonts/font-awesome.min.css')}}">
@@ -16,9 +17,12 @@
     <link rel="stylesheet" href="{{asset('/assets/fonts/fontawesome5-overrides.min.css')}}">
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link rel="icon" href="/assets/img/whitecat.png">
 </head>
 
 <body id="page-top">
+
+
     <div id="wrapper">
 
       <!-- Navbar kiri -->

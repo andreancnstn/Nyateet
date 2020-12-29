@@ -56,7 +56,11 @@
         <div class="form-group d-flex">
             <label class="control-label col-3 pt-2">Want to make this task important ?</label>
             <div class="col-10 d-flex pt-2">
+<<<<<<< Updated upstream
                 <div class="col-1" style="padding-right: 10px">
+=======
+                <div class="col-1" style="padding-right: 5px">
+>>>>>>> Stashed changes
                     <input type="radio" id="isImportantYes" name="isImportant" value="1">
                     <label for="isImportantYes">Yes</label>
                 </div>
@@ -72,4 +76,22 @@
         </div>
     </div>
 </form>
+@endsection
+	
+@section('script')	
+    <script>
+        var today = new Date();	
+        var dd = today.getDate();	
+        var mm = today.getMonth()+1;	
+        var yyyy = today.getFullYear();	
+        if(dd<10){	
+                dd='0'+dd	
+            }	
+            if(mm<10){	
+                mm='0'+mm	
+            }	
+        today = yyyy+'-'+mm+'-'+dd;	
+        document.getElementById("deadline").setAttribute("min", today);
+	
+    </script>
 @endsection

@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/finish/{id}', 'TodoController@finish')->name('todo.finish');
         Route::get('/delete/{id}', 'TodoController@destroy')->name('todo.delete');
         Route::post('/search', 'TodoController@search')->name('todo.search');
+        Route::post('/important/{id}/{importantTag}/{pageId}', 'TodoController@changeImportant')->name('todo.important');
     });
     Route::get('/logout', 'Auth\LoginController@logout');
     Route::get('/profile', function() {
