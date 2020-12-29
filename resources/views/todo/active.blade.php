@@ -14,7 +14,11 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="text-primary font-weight-bold m-0"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                     {{-- MUSTINYA PAKE KEK RIBBON KUNING KLO IMPORTANT -> CONTOH LIAT GMAIL --}}
-                    {{-- <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>  --}}
+                    @if ($t->isImportant == true)
+                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                    @elseif ($t->isImportant == false)
+                        <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
+                    @endif
                 </div>
                 {{-- TODO MAKE DETAIL MODAL PAGE --}}
                 {{-- <a href="{{ route('todo.show', $t->id) }}">  --}}

@@ -27,7 +27,11 @@
                                 {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
-                                    <i class="typcn typcn-chevron-right" style="color: #f9e814;"></i>
+                                    @if ($t->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @elseif ($t->isImportant == false)
+                                        <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
+                                    @endif
                                 </div>
                         </div>
                         <div class="row ml-1">
@@ -140,7 +144,11 @@
                                 {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
-                                    <i class="typcn typcn-chevron-right" style="color: #f9e814;"></i>
+                                    @if ($t->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @elseif ($t->isImportant == false)
+                                        <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
+                                    @endif
                                 </div>
                         </div>
                         <div class="row ml-1">
@@ -251,7 +259,11 @@
                                 {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
-                                    <i class="typcn typcn-chevron-right" style="color: #f9e814;"></i>
+                                    @if ($t->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @elseif ($t->isImportant == false)
+                                        <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
+                                    @endif
                                 </div>
                         </div>
                         <div class="row ml-1">
@@ -327,4 +339,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
