@@ -17,7 +17,7 @@ class CreateTodosTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('user_id');
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->nullable();
             $table->foreignId('status_id')->default(1);
             $table->date('deadline')->nullable();
             $table->boolean('isImportant')->default(0);
