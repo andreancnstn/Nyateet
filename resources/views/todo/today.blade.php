@@ -18,7 +18,7 @@
                 <a href="{{ route('todo.create') }}" class="btn btn-primary addBtnToday">+</a>
                 @foreach ($todo as $t)
                 <a data-toggle="modal" data-target="#modalDetailToDo-{{$t->id}}">
-                    <div class="card-body" style="margin: 10px;background: #ffffff;">
+                    <div type="button" class="card-body" style="margin: 10px;background: #ffffff;">
                         <div class="row ml-1 pb-4">
                                 <div>
                                     {{-- TASK NAME --}}
@@ -250,7 +250,7 @@
                 <a href="{{ route('todo.create') }}" class="btn btn-primary addBtnToday">+</a>
                 @foreach ($finish as $f)
                 <a data-toggle="modal" data-target="#modalDetailFinished-{{$f->id}}">
-                    <div class="card-body" style="margin: 10px;background: #ffffff;">
+                    <div type="button" class="card-body" style="margin: 10px;background: #ffffff;">
                         <div class="row ml-1 pb-4">
                                 <div>
                                     {{-- TASK NAME --}}
