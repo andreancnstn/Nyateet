@@ -181,6 +181,29 @@ class TodoController extends Controller
         return view('todo.search', compact('todo', 'cats'));
     }
 
+    public function changeImportant($id, $importantTag, $pageId)
+    {
+        $todo = Todo::findOrFail($id);
+
+        if($importantTag == 0) {
+            $todo->update([
+                'isImportant' => 1
+            ]);
+        }
+        else if($importantTag == 1) {
+            $todo->update([
+                'isImportant' => 0
+            ]);
+        }
+
+        if ($pageId == 1) {
+            return view('todo.todayIndex');
+        }
+        else if ($pageId == 2) {
+            return view('todo.activeIndex');
+        }
+    }
+
     // PART OF AJAX DOCUM DO NOT DELETE
     // public function ajaxReq(Request $request) 
     // {

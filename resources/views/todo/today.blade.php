@@ -144,9 +144,9 @@
                                 {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
-                                    @if ($t->isImportant == true)
+                                    @if ($i->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
-                                    @elseif ($t->isImportant == false)
+                                    @elseif ($i->isImportant == false)
                                         <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
                                     @endif
                                 </div>
@@ -165,7 +165,7 @@
                     </div>
 
                 {{-- MODAL --}}
-                <div class="modal" id="modalDetailInProg-{{$i->id}}">
+                <div class="modal fade" id="modalDetailInProg-{{$i->id}}">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <!-- Modal Header -->
@@ -259,9 +259,9 @@
                                 {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
-                                    @if ($t->isImportant == true)
+                                    @if ($f->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
-                                    @elseif ($t->isImportant == false)
+                                    @elseif ($f->isImportant == false)
                                         <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
                                     @endif
                                 </div>
@@ -281,7 +281,7 @@
                 </a>
 
                 {{-- MODAL --}}
-                <div class="modal" id="modalDetailFinished-{{$f->id}}">
+                <div class="modal fade" id="modalDetailFinished-{{$f->id}}">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <!-- Modal Header -->
