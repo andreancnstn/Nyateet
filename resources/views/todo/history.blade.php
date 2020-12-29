@@ -17,7 +17,7 @@
                     {{-- <div class="text-right"><i class="typcn typcn-chevron-right" style="color: #f9e814;"></i></div>  --}}
                 </div>
                 {{-- TODO MAKE DETAIL MODAL PAGE --}}
-                    <div type="button" data-toggle="modal" data-target="#modalDetail" class="card-body" style="margin: 10px;background: #ffffff;">
+                    <div type="button" data-toggle="modal" data-target="#modalDetail-{{$t->id}}" class="card-body" style="margin: 10px;background: #ffffff;">
                         <div>
                             <p class="m-0" style="color: rgb(21,21,24);">{{$t->name}}</p>
                         </div>
@@ -30,13 +30,13 @@
         </div>
 
         {{-- MODAL --}}
-        <div class="modal" id="modalDetail">
-            <div class="modal-dialog">
+        <div class="modal fade" id="modalDetail-{{$t->id}}">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <p id="category">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                        <h6 class="font-weight-bold ml-5" id="deadline"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                        <p id="category-{{$t->id}}">{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     
@@ -44,10 +44,10 @@
                     <div class="modal-body">
                         <div class="card">
                                 <div class="card-body text-right">
-                                    <h4 id="name"class="text-left card-title">{{$t->name}}</h4>
+                                    <h4 id="name-{{$t->id}}"class="text-left card-title">{{$t->name}}</h4>
                                     <hr/>
                                     <h6 class="text-left text-muted card-subtitle mb-2">Note:</h6>
-                                    <p id="notes" class="text-left card-text">{{$t->notes}}</p>
+                                    <p id="notes-{{$t->id}}" class="text-left card-text">{{$t->notes}}</p>
                                 </div>
                         </div>
                     </div>
@@ -57,8 +57,27 @@
                         <!-- BUTTONS --> 
                         {{-- <a href="{{ route('todo.edit', $t->id) }}">
                             <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
+                        </a> --}}
+                        <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal-{{$t->id}}" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" role="dialog" tabindex="-1" id="deleteModal-{{$t->id}}">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <h4 class="text-center"><br>Are you sure to delete task?<br><small style="font-size: 15px;">Your task will be deleted</small><br></h4>
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('todo.delete', $t->id) }}">
+                            <button class="btn btn-primary" type="button">Yes</button>
                         </a>
-                        <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button> --}}
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>

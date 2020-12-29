@@ -157,7 +157,7 @@ class TodoController extends Controller
             'isStart' => 1,
         ]);
 
-        return redirect()->route('todo.activeIndex');
+        return redirect()->route('todo.todayIndex');
     }
 
     public function finish($id)
@@ -170,7 +170,15 @@ class TodoController extends Controller
             'status_id' => 2
         ]);
 
-        return redirect()->route('todo.activeIndex');
+        return redirect()->route('todo.todayIndex');
+    }
+
+    public function search(Request $request)
+    {
+        $todo = Todo::where('name', 'LIKE', '%'.$request->search.'%')->where('user_id', auth()->user()->id)->get();
+        $cats = Category::all();
+
+        return view('todo.search', compact('todo', 'cats'));
     }
 
     // PART OF AJAX DOCUM DO NOT DELETE
