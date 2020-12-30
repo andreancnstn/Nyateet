@@ -84,6 +84,16 @@ class UserController extends Controller
         return redirect()->route('todo.todayIndex');
     }
 
+    public function updateAvatar(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->photo = $request->input('avatar');
+   
+        $user->update();
+        // dd($user->photo);
+        return redirect()->back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

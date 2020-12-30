@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('profile');
     Route::post('/profile/{id}', 'UserController@update')->name('user.update');
 
+    Route::post('/avatar/{id}', 'UserController@updateAvatar')->name('user.updateAvatar');
+
     // PART OF AJAX DOCUM DO NOT DELETE
     // Route::get('ajax', 'TodoController@ajaxReq');
     // Route::get('getCatName', 'TodoController@getCatName');

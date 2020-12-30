@@ -2,22 +2,51 @@
 
 @section('content')
 <div role="dialog" tabindex="-1" class="modal fade" id="avatarModal">
+<form method="POST" action="{{ route('user.updateAvatar', auth()->user()->id) }}" enctype="multipart/form-data">
+@csrf
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Select Avatar</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body" style="text-align: center;">
-                <img type="button" class="ava" src="assets/img/avatars/bath-cat.jpg" style="height: 120px;width: 120;margin: 2px;" />
-                <img type="button" class="ava" src="assets/img/avatars/pout-cat.jpg" style="width: 120px;margin: 2px;" />
-                <img type="button" class="ava" src="assets/img/avatars/smolder-cat.jpg" style="width: 120px;margin: 2px;" />
-                <img type="button" class="ava" src="assets/img/avatars/shocked-cat.jpg" style="width: 120px;margin: 2px;" />
-                <img type="button" class="ava" src="assets/img/avatars/tiger-cat.jpg" style="width: 120px;margin: 2px;" />
-                <img type="button" class="ava" src="assets/img/avatars/white-cat.jpg" style="width: 120px;margin: 2px;" />
+            <!-- AVATARS -->
+                <label class="ava">
+                    <input type="radio" name="avatar" value="/assets/img/avatars/bath-cat.jpg" checked>
+                    <img src="assets/img/avatars/bath-cat.jpg" style="width: 120px;margin: 2px;" >
+                </label>
+
+                <label class="ava">
+                    <input type="radio" name="avatar" value="/assets/img/avatars/pout-cat.jpg">
+                    <img src="assets/img/avatars/pout-cat.jpg" style="width: 120px;margin: 2px;">
+                </label>
+
+                <label class="ava">
+                    <input type="radio" name="avatar" value="/assets/img/avatars/smolder-cat.jpg" checked>
+                    <img src="assets/img/avatars/smolder-cat.jpg" style="width: 120px;margin: 2px;" >
+                </label>
+
+                <label class="ava">
+                    <input type="radio" name="avatar" value="/assets/img/avatars/shocked-cat.jpg">
+                    <img src="assets/img/avatars/shocked-cat.jpg" style="width: 120px;margin: 2px;">
+                </label>
+
+                <label class="ava">
+                    <input type="radio" name="avatar" value="/assets/img/avatars/tiger-cat.jpg" checked>
+                    <img src="assets/img/avatars/tiger-cat.jpg" style="width: 120px;margin: 2px;">
+                </label>
+
+                <label class="ava">
+                    <input type="radio" name="avatar" value="/assets/img/avatars/white-cat.jpg">
+                    <img src="assets/img/avatars/white-cat.jpg" style="width: 120px;margin: 2px;">
+                </label>
             </div>
-            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+            <div class="modal-footer">
+                <button class="btn btn-light" type="submit" value="Save" data-dismiss="modal">Close</button><button class="btn btn-primary">Save</button>
+            </div>
         </div>
     </div>
+</form>
 </div>
 
 <div class="container-fluid">
