@@ -1,6 +1,25 @@
 @extends('layouts.homeLayout')
 
 @section('content')
+<div role="dialog" tabindex="-1" class="modal fade" id="avatarModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Select Avatar</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <img type="button" class="ava" src="assets/img/avatars/bath-cat.jpg" style="height: 120px;width: 120;margin: 2px;" />
+                <img type="button" class="ava" src="assets/img/avatars/pout-cat.jpg" style="width: 120px;margin: 2px;" />
+                <img type="button" class="ava" src="assets/img/avatars/smolder-cat.jpg" style="width: 120px;margin: 2px;" />
+                <img type="button" class="ava" src="assets/img/avatars/shocked-cat.jpg" style="width: 120px;margin: 2px;" />
+                <img type="button" class="ava" src="assets/img/avatars/tiger-cat.jpg" style="width: 120px;margin: 2px;" />
+                <img type="button" class="ava" src="assets/img/avatars/white-cat.jpg" style="width: 120px;margin: 2px;" />
+            </div>
+            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
     <h3 class="text-dark mb-4">Profile</h3>
     <div class="row mb-3">
@@ -9,7 +28,7 @@
                 <div class="card-body text-center shadow">
                     <img class="rounded-circle mb-3 mt-4" src="{{ Auth::user()->photo }}" width="160" height="160">
                     <div class="mb-3">
-                        <button class="btn btn-primary btn-sm" type="button">Change Avatar</button>
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#avatarModal" type="button">Select Avatar</button>
                     </div>
                 </div>
             </div>

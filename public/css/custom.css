@@ -1,3 +1,12 @@
+.ava{
+    animation: pulse;
+    animation-duration: 0.5s;
+}
+.ava:active{
+  animation: shakeX;
+  animation-duration: 2s;
+}
+
 /*baru isi style button*/
 /* .btn {
     background-color: DodgerBlue;

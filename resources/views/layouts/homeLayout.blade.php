@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="{{asset('/assets/fonts/typicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/fonts/fontawesome5-overrides.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/custom.css')}}">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link rel="icon" href="/assets/img/whitecat.png">
