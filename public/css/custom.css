@@ -8,7 +8,7 @@
 }
 
 /* HIDE RADIO */
-[type=radio] { 
+.hide-radio { 
   position: absolute;
   opacity: 0;
   width: 0;

@@ -71,8 +71,11 @@
                                 <p id="category-{{$t->id}}" class="custom-purple">{{$cats->where('id', $t->category_id)->first()->name}}</p>
                                 @endif
                                 </div>
-                                <div class="mx-auto pt-3">
-                                    <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                <div class="mx-5 pt-3 d-flex">
+                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                    @if ($t->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
@@ -205,8 +208,11 @@
                                 <p id="category-{{$i->id}}" class="custom-purple">{{$cats->where('id', $i->category_id)->first()->name}}</p>
                                 @endif
                                 </div>
-                                <div class="mx-auto pt-3">
-                                    <h6 class="font-weight-bold ml-5" id="deadline-{{$i->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$i->deadline}}</h6>
+                                <div class="mx-5 pt-3 d-flex">
+                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$i->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$i->deadline}}</h6>
+                                    @if ($i->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
@@ -339,8 +345,11 @@
                                 <p id="category-{{$f->id}}" class="custom-purple">{{$cats->where('id', $f->category_id)->first()->name}}</p>
                                 @endif
                                 </div>
-                                <div class="mx-auto pt-3">
-                                    <h6 class="font-weight-bold ml-5" id="deadline-{{$f->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$f->deadline}}</h6>
+                                <div class="mx-5 pt-3 d-flex">
+                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$f->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$f->deadline}}</h6>
+                                    @if ($f->isImportant == true)
+                                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>

@@ -12,32 +12,32 @@
             <div class="modal-body" style="text-align: center;">
             <!-- AVATARS -->
                 <label class="ava">
-                    <input type="radio" name="avatar" value="/assets/img/avatars/bath-cat.jpg" checked>
+                    <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/bath-cat.jpg" checked>
                     <img src="assets/img/avatars/bath-cat.jpg" style="width: 120px;margin: 2px;" >
                 </label>
 
                 <label class="ava">
-                    <input type="radio" name="avatar" value="/assets/img/avatars/pout-cat.jpg">
+                    <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/pout-cat.jpg">
                     <img src="assets/img/avatars/pout-cat.jpg" style="width: 120px;margin: 2px;">
                 </label>
 
                 <label class="ava">
-                    <input type="radio" name="avatar" value="/assets/img/avatars/smolder-cat.jpg" checked>
+                    <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/smolder-cat.jpg" checked>
                     <img src="assets/img/avatars/smolder-cat.jpg" style="width: 120px;margin: 2px;" >
                 </label>
 
                 <label class="ava">
-                    <input type="radio" name="avatar" value="/assets/img/avatars/shocked-cat.jpg">
+                    <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/shocked-cat.jpg">
                     <img src="assets/img/avatars/shocked-cat.jpg" style="width: 120px;margin: 2px;">
                 </label>
 
                 <label class="ava">
-                    <input type="radio" name="avatar" value="/assets/img/avatars/tiger-cat.jpg" checked>
+                    <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/tiger-cat.jpg" checked>
                     <img src="assets/img/avatars/tiger-cat.jpg" style="width: 120px;margin: 2px;">
                 </label>
 
                 <label class="ava">
-                    <input type="radio" name="avatar" value="/assets/img/avatars/white-cat.jpg">
+                    <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/white-cat.jpg">
                     <img src="assets/img/avatars/white-cat.jpg" style="width: 120px;margin: 2px;">
                 </label>
             </div>
