@@ -25,6 +25,11 @@
   outline: 2px solid #f00;
 }
 
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
 /*baru isi style button*/
 /* .btn {
     background-color: DodgerBlue;
