@@ -54,7 +54,8 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <!-- Modal Header -->
-                    <div class="modal-header">
+                    <div class="modal-header align-items-center">
+                        <div class="pt-3">
                         @if ($t->category_id == 1)
                         <p id="category-{{$t->id}}" class="custom-blue">{{$cats->where('id', $t->category_id)->first()->name}}</p>
                         @endif
@@ -70,7 +71,10 @@
                         @if ($t->category_id == 5)
                         <p id="category-{{$t->id}}" class="custom-purple">{{$cats->where('id', $t->category_id)->first()->name}}</p>
                         @endif
-                        <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                        </div>
+                        <div class="mx-auto pt-3">
+                            <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                        </div>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     
@@ -92,7 +96,7 @@
                         <a href="{{ route('todo.edit', $t->id) }}">
                             <button id="editBtn-{{$t->id}}" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
                         </a>
-                        <button id="deleteBtn-{{$t->id}}" data-toggle="modal" data-target="#deleteModal-{{$t->id}}" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash" style="color: rgb(0,0,0);"></i>Delete</button>
+                        <button id="deleteBtn-{{$t->id}}" data-toggle="modal" data-target="#deleteModal-{{$t->id}}" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash pr-1" style="border-style: none;color: rgb(248,243,204);"></i>Delete</button>
                         @if ($t->isStart == 0)
                             <button id="startBtn-{{$t->id}}" data-toggle="modal" data-target="#startModal-{{$t->id}}" data-dismiss="modal" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
                         @endif
