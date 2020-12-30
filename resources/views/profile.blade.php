@@ -7,9 +7,9 @@
         <div class="col-lg-4">
             <div class="card mb-4">
                 <div class="card-body text-center shadow">
-                    <img class="rounded-circle mb-3 mt-4" src="assets/img/dogs/image2.jpeg" width="160" height="160">
+                    <img class="rounded-circle mb-3 mt-4" src="{{ Auth::user()->photo }}" width="160" height="160">
                     <div class="mb-3">
-                        <button class="btn btn-primary btn-sm" type="button">Change Photo</button>
+                        <button class="btn btn-primary btn-sm" type="button">Change Avatar</button>
                     </div>
                 </div>
             </div>

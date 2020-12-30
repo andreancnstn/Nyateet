@@ -35,7 +35,7 @@
                     @if (auth()->check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('profile')}}">
-                                <img class="border rounded-circle img-profile" src={{ asset('assets/img/avatars/avatar1.jpeg') }}>
+                                <img class="border rounded-circle img-profile" src="{{ Auth::user()->photo }}"
                                 <span>{{ Auth::user()->name }}</span>
                                 <span style="font-size: 10px;opacity: 0.55;padding: 5px;padding-left: 5px;">
                                     <em>{{ Auth::user()->role }}</em> {{-- Supposec for group, no implementation yet --}}
