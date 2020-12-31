@@ -48,21 +48,17 @@
                     <!-- Modal Header -->
                     <div class="modal-header align-items-center">
                         <div class="pt-3">
-                        @if ($t->category_id == 1)
-                        <p id="category-{{$t->id}}" class="custom-blue">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                        @endif
-                        @if ($t->category_id == 2)
-                        <p id="category-{{$t->id}}" class="custom-orange">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                        @endif
-                        @if ($t->category_id == 3)
-                        <p id="category-{{$t->id}}" class="custom-red">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                        @endif
-                        @if ($t->category_id == 4)
-                        <p id="category-{{$t->id}}" class="custom-green">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                        @endif
-                        @if ($t->category_id == 5)
-                        <p id="category-{{$t->id}}" class="custom-purple">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                        @endif
+                            <p id="category-{{$t->id}}" @if ($t->category_id == 1)
+                                class="custom-blue"
+                            @elseif ($t->category_id == 2)
+                                class="custom-orange"
+                            @elseif ($t->category_id == 3)
+                                class="custom-red"
+                            @elseif ($t->category_id == 4)
+                                class="custom-green"
+                            @elseif ($t->category_id == 5)
+                                class="custom-purple"
+                            @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
                         </div>
                         <div class="mx-auto pt-3">
                             <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
@@ -91,8 +87,7 @@
                         <button id="deleteBtn-{{$t->id}}" data-toggle="modal" data-target="#deleteModal-{{$t->id}}" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash pr-1" style="border-style: none;color: rgb(248,243,204);"></i>Delete</button>
                         @if ($t->isStart == 0 && $t->isFinished == 0)
                             <button id="startBtn-{{$t->id}}" data-toggle="modal" data-target="#startModal-{{$t->id}}" data-dismiss="modal" class="btn btn-success" type="button"><i class="fa fa-check"></i>Start</button>
-                        @endif
-                        @if ($t->isStart == 1 && $t->isFinished == 0)
+                        @elseif ($t->isStart == 1 && $t->isFinished == 0)
                             <button class="btn btn-success" type="button" data-toggle="modal" data-target="#finishModal-{{$t->id}}" data-dismiss="modal"><i class="fa fa-check"></i>Finish</button>
                         @endif
                     </div>

@@ -59,27 +59,22 @@
                             <!-- Modal Header -->
                             <div class="modal-header align-items-center">
                                 <div class="pt-3">
-                                @if ($t->category_id == 1)
-                                <p id="category-{{$t->id}}" class="custom-blue">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($t->category_id == 2)
-                                <p id="category-{{$t->id}}" class="custom-orange">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($t->category_id == 3)
-                                <p id="category-{{$t->id}}" class="custom-red">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($t->category_id == 4)
-                                <p id="category-{{$t->id}}" class="custom-green">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($t->category_id == 5)
-                                <p id="category-{{$t->id}}" class="custom-purple">{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                                @endif
+                                    <p id="category-{{$t->id}}" @if ($t->category_id == 1)
+                                        class="custom-blue"
+                                    @elseif ($t->category_id == 2)
+                                        class="custom-orange"
+                                    @elseif ($t->category_id == 3)
+                                        class="custom-red"
+                                    @elseif ($t->category_id == 4)
+                                        class="custom-green"
+                                    @elseif ($t->category_id == 5)
+                                        class="custom-purple"
+                                    @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
                                 </div>
                                 <div class="mx-5 pt-3 d-flex">
                                     @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
-                                    @endif
-                                    @if ($t->isImportant == true)
+                                    @elseif ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
                                     @endif
                                 </div>
@@ -202,27 +197,22 @@
                             <!-- Modal Header -->
                             <div class="modal-header align-items-center">
                                 <div class="pt-3">
-                                @if ($i->category_id == 1)
-                                <p id="category-{{$i->id}}" class="custom-blue">{{$cats->where('id', $i->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($i->category_id == 2)
-                                <p id="category-{{$i->id}}" class="custom-orange">{{$cats->where('id', $i->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($i->category_id == 3)
-                                <p id="category-{{$i->id}}" class="custom-red">{{$cats->where('id', $i->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($i->category_id == 4)
-                                <p id="category-{{$i->id}}" class="custom-green">{{$cats->where('id', $i->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($i->category_id == 5)
-                                <p id="category-{{$i->id}}" class="custom-purple">{{$cats->where('id', $i->category_id)->first()->name}}</p>
-                                @endif
+                                    <p id="category-{{$i->id}}" @if ($i->category_id == 1)
+                                        class="custom-blue"
+                                    @elseif ($i->category_id == 2)
+                                        class="custom-orange"
+                                    @elseif ($i->category_id == 3)
+                                        class="custom-red"
+                                    @elseif ($i->category_id == 4)
+                                        class="custom-green"
+                                    @elseif ($i->category_id == 5)
+                                        class="custom-purple"
+                                    @endif>{{$cats->where('id', $i->category_id)->first()->name}}</p>
                                 </div>
                                 <div class="mx-5 pt-3 d-flex">
                                     @if ($i->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$i->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$i->deadline}}</h6>
-                                    @endif
-                                    @if ($i->isImportant == true)
+                                    @elseif ($i->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
                                     @endif
                                 </div>
@@ -345,27 +335,22 @@
                             <!-- Modal Header -->
                             <div class="modal-header align-items-center">
                                 <div class="pt-3">
-                                @if ($f->category_id == 1)
-                                <p id="category-{{$f->id}}" class="custom-blue">{{$cats->where('id', $f->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($f->category_id == 2)
-                                <p id="category-{{$f->id}}" class="custom-orange">{{$cats->where('id', $f->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($f->category_id == 3)
-                                <p id="category-{{$f->id}}" class="custom-red">{{$cats->where('id', $f->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($f->category_id == 4)
-                                <p id="category-{{$f->id}}" class="custom-green">{{$cats->where('id', $f->category_id)->first()->name}}</p>
-                                @endif
-                                @if ($f->category_id == 5)
-                                <p id="category-{{$f->id}}" class="custom-purple">{{$cats->where('id', $f->category_id)->first()->name}}</p>
-                                @endif
+                                    <p id="category-{{$f->id}}" @if ($f->category_id == 1)
+                                        class="custom-blue"
+                                    @elseif ($f->category_id == 2)
+                                        class="custom-orange"
+                                    @elseif ($f->category_id == 3)
+                                        class="custom-red"
+                                    @elseif ($f->category_id == 4)
+                                        class="custom-green"
+                                    @elseif ($f->category_id == 5)
+                                        class="custom-purple"
+                                    @endif>{{$cats->where('id', $f->category_id)->first()->name}}</p>
                                 </div>
                                 <div class="mx-5 pt-3 d-flex">
                                     @if ($f->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$f->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$f->deadline}}</h6>
-                                    @endif
-                                    @if ($f->isImportant == true)
+                                    @elseif ($f->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
                                     @endif
                                 </div>
