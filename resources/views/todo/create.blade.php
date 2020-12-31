@@ -21,7 +21,7 @@
         <h1 class="pt-2 pb-3">Create Task / Activities</h1>
         <hr>
         <div class="form-group d-flex">
-            <label class="control-label col-2 pt-2">Task / Activity Name</label><span class="pt-2">&nbsp;&nbsp;&nbsp;:&nbsp;</span>
+            <label class="control-label col-2 pt-2">Task / Activity Name<span style="color: red"> *</span></label><span class="pt-2">&nbsp;&nbsp;&nbsp;:&nbsp;</span>
             <div class="col-10">
                 <input class="form-control" id="name" name="name" placeholder="activity name" required>
             </div>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="form-group d-flex">
-            <label class="control-label col-3 pt-2">Want to make this task important ?</label>
+            <label class="control-label col-3 pt-2">Want to make this task important ?<span style="color: red"> *</span></label>
             <div class="col-10 d-flex pt-2">
                 <div class="col-1" style="padding-left: 5px">
                     <input type="radio" id="isImportantYes" name="isImportant" value="1">

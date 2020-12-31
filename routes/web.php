@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile', function() {
         return view('profile');
     })->name('profile');
-    Route::post('/profile/{id}', 'UserController@update')->name('user.update');
+    Route::post('/profile', 'UserController@update')->name('user.update');
 
     Route::post('/avatar/{id}', 'UserController@updateAvatar')->name('user.updateAvatar');
 

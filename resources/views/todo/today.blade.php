@@ -37,11 +37,15 @@
                         <div class="row ml-1">
                             <div>
                                 {{-- CATEGORY TAG --}}
+                                @if ($t->category_id != null)
                                 <p>{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                                @endif
                             </div>
                             <div class="ml-auto mr-3 row">
                                 {{-- DEADLINE TAG --}}
+                                @if ($t->deadline != null)
                                 <i class="fa fa-calendar-check-o pt-1 pr-2"></i>
+                                @endif
                                 <p>{{ $t->deadline }}</p>
                             </div>
                         </div>
@@ -72,7 +76,9 @@
                                 @endif
                                 </div>
                                 <div class="mx-5 pt-3 d-flex">
+                                    @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                    @endif
                                     @if ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
                                     @endif
@@ -175,11 +181,15 @@
                         <div class="row ml-1">
                             <div>
                                 {{-- CATEGORY TAG --}}
+                                @if ($i->category_id != null)
                                 <p>{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                                @endif
                             </div>
                             <div class="ml-auto mr-3 row">
                                 {{-- DEADLINE TAG --}}
+                                @if ($i->deadline != null)
                                 <i class="fa fa-calendar-check-o pt-1 pr-2"></i>
+                                @endif
                                 <p>{{ $i->deadline }}</p>
                             </div>
                         </div>
@@ -209,7 +219,9 @@
                                 @endif
                                 </div>
                                 <div class="mx-5 pt-3 d-flex">
+                                    @if ($i->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$i->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$i->deadline}}</h6>
+                                    @endif
                                     @if ($i->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
                                     @endif
@@ -242,7 +254,7 @@
                     </div>
                 </div>
 
-                <!-- START MODAL -->
+                <!-- FINISH MODAL -->
                 <div class="modal fade" role="dialog" tabindex="-1" id="finishModal-{{$i->id}}">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -311,11 +323,15 @@
                         <div class="row ml-1">
                             <div>
                                 {{-- CATEGORY TAG --}}
+                                @if ($f->category_id != null)
                                 <p>{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                @endif
                             </div>
                             <div class="ml-auto mr-3 row">
                                 {{-- DEADLINE TAG --}}
+                                @if ($f->deadline != null)
                                 <i class="fa fa-calendar-check-o pt-1 pr-2"></i>
+                                @endif
                                 <p>{{ $f->deadline }}</p>
                             </div>
                         </div>
@@ -346,7 +362,9 @@
                                 @endif
                                 </div>
                                 <div class="mx-5 pt-3 d-flex">
+                                    @if ($f->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$f->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$f->deadline}}</h6>
+                                    @endif
                                     @if ($f->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
                                     @endif

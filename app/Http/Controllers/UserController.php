@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -67,21 +68,28 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail(auth()->user()->id);
 
         $data = $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8',
+            'newpassword' => 'nullable|min:8|string',
+            'confnewpassword' => 'same:newpassword'
         ]);
 
+        if(!empty($request->newpassword)) {
+            $newpass = $request->newpassword;
+        }
+
         $user->update(array_merge(
-            $data
+            $data,
+            ['password' => Hash::make($request->newpassword)]
         ));
 
-        return redirect()->route('todo.todayIndex');
+        return redirect()->back()->with('status', 'Profile updated!');
     }
 
     public function updateAvatar(Request $request, $id)

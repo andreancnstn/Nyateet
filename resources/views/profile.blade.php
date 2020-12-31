@@ -49,6 +49,16 @@
 </form>
 </div>
 
+@if ($errors->any())
+    <div class="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li style="color: rgb(214, 0, 0)">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="container-fluid">
     <h3 class="text-dark mb-4">Profile</h3>
     <div class="row mb-3">
@@ -70,31 +80,47 @@
                             <p class="text-primary m-0 font-weight-bold">User Settings</p>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('user.update', auth()->user()->id) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="name"><strong>Name</strong></label>
-                                            <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="{{ auth()->user()->name }}">
+                                            <label for="name"><strong>Name<span style="color: red"> *</span></strong></label>
+                                            <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="{{ Auth::user()->name }}" required>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="email"><strong>Email Address</strong></label>
-                                            <input class="form-control" type="email" name="email" id="email" value="{{ auth()->user()->email }}">
+                                            <label for="email"><strong>Email Address<span style="color: red"> *</span></strong></label>
+                                            <input class="form-control" type="email" name="email" id="email" value="{{ Auth::user()->email }}" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="password"><strong>Password</strong></label>
+                                            <label for="password"><strong>Password<span style="color: red"> *</span></strong></label>
                                             <input class="form-control" type="password" placeholder="" name="password" id="password" value="" required>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="password"><strong>New password</strong></label>
+                                            <input class="form-control" type="password" placeholder="" name="newpassword" id="newpassword" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="email"><strong>Retype new password</strong></label>
+                                            <input class="form-control" type="password" placeholder="" name="confnewpassword" id="confnewpassword" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
+                                </div>
                             </form>
                         </div>
                     </div>

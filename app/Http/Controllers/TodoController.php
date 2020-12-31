@@ -117,7 +117,7 @@ class TodoController extends Controller
      * @param  \App\Todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request)
     {
         $todo = Todo::findOrFail($request->id);
 
@@ -146,7 +146,7 @@ class TodoController extends Controller
     {
         Todo::findorFail($id)->delete();
 
-        return redirect()->route('todo.todayIndex');
+        return redirect()->back();
     }
 
     public function start(Request $request, $id)
@@ -157,7 +157,7 @@ class TodoController extends Controller
             'isStart' => 1,
         ]);
 
-        return redirect()->route('todo.todayIndex');
+        return redirect()->back();
     }
 
     public function finish($id)
@@ -170,7 +170,7 @@ class TodoController extends Controller
             'status_id' => 2
         ]);
 
-        return redirect()->route('todo.todayIndex');
+        return redirect()->back();
     }
 
     public function search(Request $request)
@@ -181,28 +181,29 @@ class TodoController extends Controller
         return view('todo.search', compact('todo', 'cats'));
     }
 
-    public function changeImportant($id, $importantTag, $pageId)
-    {
-        $todo = Todo::findOrFail($id);
+    // part of when user click important it can change to unimportant
+    // public function changeImportant($id, $importantTag, $pageId)
+    // {
+    //     $todo = Todo::findOrFail($id);
 
-        if($importantTag == 0) {
-            $todo->update([
-                'isImportant' => 1
-            ]);
-        }
-        else if($importantTag == 1) {
-            $todo->update([
-                'isImportant' => 0
-            ]);
-        }
+    //     if($importantTag == 0) {
+    //         $todo->update([
+    //             'isImportant' => 1
+    //         ]);
+    //     }
+    //     else if($importantTag == 1) {
+    //         $todo->update([
+    //             'isImportant' => 0
+    //         ]);
+    //     }
 
-        if ($pageId == 1) {
-            return view('todo.todayIndex');
-        }
-        else if ($pageId == 2) {
-            return view('todo.activeIndex');
-        }
-    }
+    //     if ($pageId == 1) {
+    //         return view('todo.todayIndex');
+    //     }
+    //     else if ($pageId == 2) {
+    //         return view('todo.activeIndex');
+    //     }
+    // }
 
     // PART OF AJAX DOCUM DO NOT DELETE
     // public function ajaxReq(Request $request) 
