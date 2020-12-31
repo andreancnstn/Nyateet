@@ -15,16 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    if(auth()->check()) {
+        return redirect()->route('todo.todayIndex');
+    }
+    else {
+        return view('home');
+    }
 });
 
-Route::get('/home', function () {
-    return redirect()->route('todo.todayIndex');
-})->middleware('auth');
+// Route::get('/home', function () {
+//     return redirect()->route('todo.todayIndex');
+// })->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('todos')->group(function() {
