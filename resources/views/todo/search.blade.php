@@ -20,18 +20,6 @@
                     <div type="button" data-toggle="modal" data-target="#modalDetail-{{$t->id}}" class="card-body" style="margin: 10px;background: #ffffff;">
                         <div>
                             <p class="m-0" style="color: rgb(21,21,24);">{{$t->name}}</p>
-                                {{-- <div class="text-right">
-                                    @if ($t->isStart == 0)
-                                    <a href="{{ route('todo.start', $t->id) }}">
-                                        <button class="btn btn-warning" type="button"><i class="fa fa-check"></i>Start</button>
-                                    </a>
-                                    @else
-                                    <a href="{{ route('todo.finish', $t->id) }}">
-                                        <button class="btn btn-warning" type="button"><i class="fa fa-check"></i>Finish</button>
-                                    </a>
-                                        
-                                    @endif
-                                </div> --}}
                         </div>
                         <div>
                             {{-- BUAT CATEGORYNYA , CTH LIAT FIGMA (KLO GK BISA UBAH UBAH WRNANYA, BUAT AJA CLASSNYA OR TEMPLATENYA) --}}
@@ -61,7 +49,14 @@
                             @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
                         </div>
                         <div class="mx-auto pt-3">
-                            <h6 class="font-weight-bold ml-5" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                            @if ($t->deadline != null)
+                            <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                            @endif
+                            @if ($t->isImportant == true)
+                                <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                            @else
+                                <div class="text-right"><i class="fa fa-star" style="color: #d3d3d3;"></i></div>
+                            @endif
                         </div>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>

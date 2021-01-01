@@ -15,11 +15,7 @@
     <link rel="stylesheet" href="{{asset('/assets/fonts/typicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/fonts/fontawesome5-overrides.min.css')}}">
     <link rel="stylesheet" href="{{asset('/assets/css/custom.css')}}">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link rel="icon" href="/assets/img/whitecat.png">
 </head>
@@ -27,7 +23,7 @@
 <body id="page-top">
     <div id="wrapper">
 
-      <!-- Navbar kiri -->
+    <!-- Navbar kiri -->
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="{{ route('todo.todayIndex') }}">
@@ -42,7 +38,7 @@
                                 <img class="border rounded-circle img-profile" src="{{ Auth::user()->photo }}">
                                 <span>{{ Auth::user()->name }}</span>
                                 <span style="font-size: 10px;opacity: 0.55;padding: 5px;padding-left: 5px;">
-                                    <em>{{ Auth::user()->role }}</em> {{-- Supposec for group, no implementation yet --}}
+                                    {{-- <em>{{ Auth::user()->role }}</em> Supposec for group, no implementation yet --}}
                                 </span>
                             </a>
                         </li>
@@ -79,7 +75,7 @@
                 </nav>
                 @endauth
 
-              <!-- ISI -->
+            <!-- ISI -->
                 <div class="container-fluid">
                     @yield('content')
                 </div>
