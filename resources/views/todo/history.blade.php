@@ -10,25 +10,22 @@
     <div class="row">
         @foreach ($todos as $t)
         <div class="col-lg-4 col-xl-4">
-            <div class="card shadow mb-4" style="background: rgb(248,249,252);">
+            <div class="card shadow mb-4 card-bg">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     @if ($t->deadline != null)
                         <h6 class="text-primary font-weight-bold m-0"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                     @endif
-                    {{-- MUSTINYA PAKE KEK RIBBON KUNING KLO IMPORTANT -> CONTOH LIAT GMAIL --}}
                     @if ($t->isImportant == true)
-                        <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                        <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
                     @elseif ($t->isImportant == false)
-                        <div class="text-right"><i class="fa fa-star-o" style="color: #d3d3d3;"></i></div>
+                        <div class="text-right"><i class="fa fa-star-o custom-gray"></i></div>
                     @endif
                 </div>
-                {{-- TODO MAKE DETAIL MODAL PAGE --}}
-                    <div type="button" data-toggle="modal" data-target="#modalDetail-{{$t->id}}" class="card-body" style="margin: 10px;background: #ffffff;">
+                    <div type="button" data-toggle="modal" data-target="#modalDetail-{{$t->id}}" class="card-body card-body-colorbg">
                         <div>
-                            <p class="m-0" style="color: rgb(21,21,24);">{{$t->name}}</p>
+                            <p class="m-0 custom-black">{{$t->name}}</p>
                         </div>
                         <div>
-                            {{-- BUAT CATEGORYNYA , CTH LIAT FIGMA (KLO GK BISA UBAH UBAH WRNANYA, BUAT AJA CLASSNYA OR TEMPLATENYA) --}}
                             <div>
                                 {{-- CATEGORY TAG --}}
                                 @if ($t->category_id != null)
@@ -47,6 +44,7 @@
                     <!-- Modal Header -->
                     <div class="modal-header align-items-center">
                         <div class="pt-3">
+                            @if(!empty($t->category_id))
                         <p id="category-{{$t->id}}" @if ($t->category_id == 1)
                                 class="custom-blue"
                             @elseif ($t->category_id == 2)
@@ -57,16 +55,16 @@
                                 class="custom-green"
                             @elseif ($t->category_id == 5)
                                 class="custom-purple"
-                            @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                            @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>@endif
                         </div>
                         <div class="mx-auto pt-3">
                             @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                             @endif
                             @if ($t->isImportant == true)
-                                <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
                             @else
-                                <div class="text-right"><i class="fa fa-star" style="color: #d3d3d3;"></i></div>
+                                <div class="text-right"><i class="fa fa-star custom-gray"></i></div>
                             @endif
                         </div>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -86,11 +84,7 @@
                     
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <!-- BUTTONS --> 
-                        {{-- <a href="{{ route('todo.edit', $t->id) }}">
-                            <button id="editBtn" class="btn btn-warning" type="button"><i class="fa fa-pencil" style="border-style: none;color: rgb(248,243,204);"></i>Edit</button>
-                        </a> --}}
-                        <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal-{{$t->id}}" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash pr-1" style="border-style: none;color: rgb(248,243,204);"></i>Delete</button>
+                        <button id="deleteBtn" data-toggle="modal" data-target="#deleteModal-{{$t->id}}" data-dismiss="modal" class="btn btn-danger" type="button"><i class="fa fa-trash pr-1 modal-btn-style"></i>Delete</button>
                     </div>
                 </div>
             </div>
@@ -102,7 +96,7 @@
                     <div class="modal-header">
                         <h4 class="modal-title">Delete Task</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
                     <div class="modal-body">
-                        <h4 class="text-center"><br>Are you sure to delete task?<br><small style="font-size: 15px;">Your task will be deleted</small><br></h4>
+                        <h4 class="text-center"><br>Are you sure to delete task?<br><small class="modal-font-small">Your task will be deleted</small><br></h4>
                         <p></p>
                     </div>
                     <div class="modal-footer">

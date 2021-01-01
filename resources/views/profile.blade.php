@@ -13,32 +13,32 @@
             <!-- AVATARS -->
                 <label class="ava">
                     <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/bath-cat.jpg" checked>
-                    <img src="assets/img/avatars/bath-cat.jpg" style="width: 120px;margin: 2px;" >
+                    <img src="assets/img/avatars/bath-cat.jpg" class="pic-style">
                 </label>
 
                 <label class="ava">
                     <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/pout-cat.jpg">
-                    <img src="assets/img/avatars/pout-cat.jpg" style="width: 120px;margin: 2px;">
+                    <img src="assets/img/avatars/pout-cat.jpg" class="pic-style">
                 </label>
 
                 <label class="ava">
                     <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/smolder-cat.jpg" checked>
-                    <img src="assets/img/avatars/smolder-cat.jpg" style="width: 120px;margin: 2px;" >
+                    <img src="assets/img/avatars/smolder-cat.jpg" class="pic-style">
                 </label>
 
                 <label class="ava">
                     <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/shocked-cat.jpg">
-                    <img src="assets/img/avatars/shocked-cat.jpg" style="width: 120px;margin: 2px;">
+                    <img src="assets/img/avatars/shocked-cat.jpg" class="pic-style">
                 </label>
 
                 <label class="ava">
                     <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/tiger-cat.jpg" checked>
-                    <img src="assets/img/avatars/tiger-cat.jpg" style="width: 120px;margin: 2px;">
+                    <img src="assets/img/avatars/tiger-cat.jpg" class="pic-style">
                 </label>
 
                 <label class="ava">
                     <input class="hide-radio" type="radio" name="avatar" value="/assets/img/avatars/white-cat.jpg">
-                    <img src="assets/img/avatars/white-cat.jpg" style="width: 120px;margin: 2px;">
+                    <img src="assets/img/avatars/white-cat.jpg" class="pic-style">
                 </label>
             </div>
             <div class="modal-footer">
