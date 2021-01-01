@@ -81,12 +81,15 @@ class UserController extends Controller
         ]);
 
         if(!empty($request->newpassword)) {
-            $newpass = $request->newpassword;
+            $pass = $request->newpassword;
+        }
+        else {
+            $pass = $request->password;
         }
 
         $user->update(array_merge(
             $data,
-            ['password' => Hash::make($request->newpassword)]
+            ['password' => Hash::make($pass)]
         ));
 
         return redirect()->back()->with('status', 'Profile updated!');

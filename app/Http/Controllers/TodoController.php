@@ -16,12 +16,8 @@ class TodoController extends Controller
      */
     public function todayIndex()
     {
-        // $todo = $data->where('isStart', '=', false);
-        // $inprog = $data->where('isStart', '=', true);       // tiga ini adalah logic buat page today
-        // $finish = $data->where('isFinished', '=', true);
-
         $todos = Todo::all()->where('user_id', auth()->user()->id);
-        // $todos = Todo::where('deadline', date("Y-m-d"))->get();
+        $todos = $todos->where('deadline', date("Y-m-d"));
         $todo = $todos->where('isStart', 0)->where('isFinished', 0);
         $inprog = $todos->where('isStart', 1)->where('isFinished', 0);
         $finish = $todos->where('isStart', 0)->where('isFinished', 1);
@@ -180,43 +176,4 @@ class TodoController extends Controller
 
         return view('todo.search', compact('todo', 'cats'));
     }
-
-    // part of when user click important it can change to unimportant
-    // public function changeImportant($id, $importantTag, $pageId)
-    // {
-    //     $todo = Todo::findOrFail($id);
-
-    //     if($importantTag == 0) {
-    //         $todo->update([
-    //             'isImportant' => 1
-    //         ]);
-    //     }
-    //     else if($importantTag == 1) {
-    //         $todo->update([
-    //             'isImportant' => 0
-    //         ]);
-    //     }
-
-    //     if ($pageId == 1) {
-    //         return view('todo.todayIndex');
-    //     }
-    //     else if ($pageId == 2) {
-    //         return view('todo.activeIndex');
-    //     }
-    // }
-
-    // PART OF AJAX DOCUM DO NOT DELETE
-    // public function ajaxReq(Request $request) 
-    // {
-    //     $id = $request->get('id');
-    //     $data = Todo::findOrFail($id);
-    //     return $data;
-    // }
-
-    // public function getCatName(Request $request)
-    // {
-    //     $cat_id = $request->get('cat_id');
-    //     $data = Category::findOrFail($cat_id);
-    //     return $data;
-    // }
 }

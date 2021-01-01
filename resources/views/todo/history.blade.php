@@ -43,8 +43,8 @@
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header align-items-center">
+                        @if(!empty($t->category_id))
                         <div class="pt-3">
-                            @if(!empty($t->category_id))
                         <p id="category-{{$t->id}}" @if ($t->category_id == 1)
                                 class="custom-blue"
                             @elseif ($t->category_id == 2)
@@ -55,9 +55,9 @@
                                 class="custom-green"
                             @elseif ($t->category_id == 5)
                                 class="custom-purple"
-                            @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>@endif
-                        </div>
-                        <div class="mx-auto pt-3">
+                            @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                        </div>@endif
+                        <div class="mx-2 pt-3 d-flex">
                             @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                             @endif

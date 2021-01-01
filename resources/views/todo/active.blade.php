@@ -43,8 +43,8 @@
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header align-items-center">
+                        @if (!empty($t->category_id))
                         <div class="pt-3">
-                            @if (!empty($t->category_id))
                             <p id="category-{{$t->id}}" @if ($t->category_id == 1)
                                 class="custom-blue"
                                 @elseif ($t->category_id == 2)
@@ -55,17 +55,18 @@
                                 class="custom-green"
                                 @elseif ($t->category_id == 5)
                                 class="custom-purple"
-                                @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
-                                @endif
+                                @endif>{{$cats->where('id', $t->category_id)->first()->name}}
+                            </p>
                         </div>
+                        @endif
                         <div class="mx-auto pt-3 d-flex">
                             @if ($t->deadline != null)
                             <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
                             @endif
                             @if ($t->isImportant == true)
-                                <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
+                                <div class=""><i class="fa fa-star custom-yellow"></i></div>
                             @else
-                                <div class="text-right"><i class="fa fa-star custom-gray"></i></div>
+                                <div class=""><i class="fa fa-star-o custom-gray"></i></div>
                             @endif
                         </div>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -165,13 +166,4 @@
 @endsection
 
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-    $('#modalDetail').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    });
-</script>
 @endsection
