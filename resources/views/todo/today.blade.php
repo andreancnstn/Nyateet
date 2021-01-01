@@ -69,8 +69,9 @@
                                         class="custom-green"
                                     @elseif ($t->category_id == 5)
                                         class="custom-purple"
-                                    @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>@endif
-                                </div>
+                                        @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
+                                    </div>
+                                    @endif
                                 <div class="mx-auto pt-3 d-flex">
                                     @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
@@ -78,7 +79,7 @@
                                     @if ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
                                     @else
-                                        <div class="text-right"><i class="fa fa-star custom-gray"></i></div>
+                                        <div class="text-right"><i class="fa fa-star-o custom-gray"></i></div>
                                     @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -210,8 +211,8 @@
                                         class="custom-green"
                                     @elseif ($i->category_id == 5)
                                         class="custom-purple"
-                                    @endif>{{$cats->where('id', $i->category_id)->first()->name}}</p>@endif
-                                </div>
+                                    @endif>{{$cats->where('id', $i->category_id)->first()->name}}</p>
+                                </div>@endif
                                 <div class="mx-auto pt-3 d-flex">
                                     @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
@@ -219,7 +220,7 @@
                                     @if ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
                                     @else
-                                        <div class="text-right"><i class="fa fa-star custom-gray"></i></div>
+                                        <div class="text-right"><i class="fa fa-star-o custom-gray"></i></div>
                                     @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -351,8 +352,8 @@
                                         class="custom-green"
                                     @elseif ($f->category_id == 5)
                                         class="custom-purple"
-                                    @endif>{{$cats->where('id', $f->category_id)->first()->name}}</p>@endif
-                                </div>
+                                    @endif>{{$cats->where('id', $f->category_id)->first()->name}}</p>
+                                </div>@endif
                                 <div class="mx-auto pt-3 d-flex">
                                     @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
@@ -360,7 +361,7 @@
                                     @if ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
                                     @else
-                                        <div class="text-right"><i class="fa fa-star custom-gray"></i></div>
+                                        <div class="text-right"><i class="fa fa-star-o custom-gray"></i></div>
                                     @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
