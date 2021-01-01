@@ -57,7 +57,7 @@
         <div class="form-group d-flex">
             <label class="control-label col-3 pt-2">Want to make this task important ?<span style="color: red"> *</span></label>
             <div class="col-10 d-flex pt-2">
-                <div class="col-1" style="padding-left: 5px">
+                <div class="col-1">
                     <input type="radio" id="isImportantYes" name="isImportant" value="1" @if ($todo->isImportant == 1)
                         checked
                     @endif>
