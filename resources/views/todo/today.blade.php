@@ -24,7 +24,6 @@
                                     {{-- TASK NAME --}}
                                     <p class="m-0" style="color: rgb(21,21,24);">{{$t->name}}</p>
                                 </div>
-                                {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
                                     @if ($t->isImportant == true)
@@ -71,17 +70,20 @@
                                         class="custom-purple"
                                     @endif>{{$cats->where('id', $t->category_id)->first()->name}}</p>
                                 </div>
-                                <div class="mx-5 pt-3 d-flex">
+                                <div class="mx-auto pt-3 d-flex">
                                     @if ($t->deadline != null)
                                     <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
-                                    @elseif ($t->isImportant == true)
+                                    @endif
+                                    @if ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @else
+                                        <div class="text-right"><i class="fa fa-star" style="color: #d3d3d3;"></i></div>
                                     @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             
-                            <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
+                            <!-- Modal body --> 
                             <div class="modal-body">
                                 <div class="card">
                                         <div class="card-body text-right">
@@ -163,7 +165,6 @@
                                     {{-- TASK NAME --}}
                                     <p class="m-0" style="color: rgb(21,21,24);">{{$i->name}}</p>
                                 </div>
-                                {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
                                     @if ($i->isImportant == true)
@@ -209,17 +210,20 @@
                                         class="custom-purple"
                                     @endif>{{$cats->where('id', $i->category_id)->first()->name}}</p>
                                 </div>
-                                <div class="mx-5 pt-3 d-flex">
-                                    @if ($i->deadline != null)
-                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$i->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$i->deadline}}</h6>
-                                    @elseif ($i->isImportant == true)
+                                <div class="mx-auto pt-3 d-flex">
+                                    @if ($t->deadline != null)
+                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                    @endif
+                                    @if ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @else
+                                        <div class="text-right"><i class="fa fa-star" style="color: #d3d3d3;"></i></div>
                                     @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             
-                            <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
+                            <!-- Modal body --> 
                             <div class="modal-body">
                                 <div class="card">
                                         <div class="card-body text-right">
@@ -300,7 +304,6 @@
                                     {{-- TASK NAME --}}
                                     <p class="m-0" style="color: rgb(21,21,24);">{{$f->name}}</p>
                                 </div>
-                                {{-- CHANGE TO IMPORTANT TAG, REF TO GMAIL --}}
                                 {{-- IMPORTANT TAG --}}
                                 <div class="ml-auto mr-3">
                                     @if ($f->isImportant == true)
@@ -347,17 +350,20 @@
                                         class="custom-purple"
                                     @endif>{{$cats->where('id', $f->category_id)->first()->name}}</p>
                                 </div>
-                                <div class="mx-5 pt-3 d-flex">
-                                    @if ($f->deadline != null)
-                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$f->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$f->deadline}}</h6>
-                                    @elseif ($f->isImportant == true)
+                                <div class="mx-auto pt-3 d-flex">
+                                    @if ($t->deadline != null)
+                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                    @endif
+                                    @if ($t->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star" style="color: #f9e814;"></i></div>
+                                    @else
+                                        <div class="text-right"><i class="fa fa-star" style="color: #d3d3d3;"></i></div>
                                     @endif
                                 </div>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             
-                            <!-- Modal body TODO check udah sesuai belom tampilannya & route the buttons--> 
+                            <!-- Modal body --> 
                             <div class="modal-body">
                                 <div class="card">
                                         <div class="card-body text-right">
