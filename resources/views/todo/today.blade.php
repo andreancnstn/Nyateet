@@ -214,10 +214,10 @@
                                     @endif>{{$cats->where('id', $i->category_id)->first()->name}}</p>
                                 </div>@endif
                                 <div class="mx-auto pt-3 d-flex">
-                                    @if ($t->deadline != null)
-                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                    @if ($i->deadline != null)
+                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$i->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$i->deadline}}</h6>
                                     @endif
-                                    @if ($t->isImportant == true)
+                                    @if ($i->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
                                     @else
                                         <div class="text-right"><i class="fa fa-star-o custom-gray"></i></div>
@@ -355,10 +355,10 @@
                                     @endif>{{$cats->where('id', $f->category_id)->first()->name}}</p>
                                 </div>@endif
                                 <div class="mx-auto pt-3 d-flex">
-                                    @if ($t->deadline != null)
-                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$t->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$t->deadline}}</h6>
+                                    @if ($f->deadline != null)
+                                    <h6 class="fnt-weight-bold ml-5 pr-3 pt-1" id="deadline-{{$f->id}}"><i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;{{$f->deadline}}</h6>
                                     @endif
-                                    @if ($t->isImportant == true)
+                                    @if ($f->isImportant == true)
                                         <div class="text-right"><i class="fa fa-star custom-yellow"></i></div>
                                     @else
                                         <div class="text-right"><i class="fa fa-star-o custom-gray"></i></div>
